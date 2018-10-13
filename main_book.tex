@@ -155,7 +155,7 @@ try & while & with & yield
 \end{tabular}
 \end{center}
 
-\section{Variables}
+\section{Variables and assignment}
 Python is dynamically typed language, it means it will decide what to do with your input at the run time. 
 
 Variable declaration and definition in python is something different. If you want to define integer in other languages, for that you follow this syntax \texttt{<data\textunderscore type> <variable\textunderscore name> = <value>}
@@ -358,6 +358,7 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 NameError: name 'hello' is not defined
 \end{verbatim}
+\subsubsection{String Methods}
 You can check properties of string using \texttt{dir()} method.
 \begin{verbatim}
 >>> dir('hello')
@@ -385,7 +386,8 @@ You can use the string properties using \texttt{.} symbol.
 >>> s.upper()
 HELLO
 \end{verbatim}
-\subsection{String Concatenation}
+\subsection{Operation on strings}
+\subsubsection{String Concatenation}
 You can concat two string using \texttt{+} operator.
 \begin{verbatim}
 >>> h = "Hello "
@@ -393,7 +395,7 @@ You can concat two string using \texttt{+} operator.
 >>> h + i
 'Hello World'
 \end{verbatim}
-\subsection{String Multiplication}
+\subsubsection{String Multiplication}
 You can not subtract or divide string in Python. But you can multiply the strings with Python. When you multiply with the number it will create that strings references.
 \begin{verbatim}
 >>> "Hello" * 5
@@ -410,6 +412,18 @@ If you can multiply to the string with the numbers then it is easy to print star
 ****
 *****
 \end{verbatim}
+\subsubsection{Substring in String}
+To check substring is present in the string is too much easy in the Python. You can use \texttt{in} keyword to check the substring is present or not.
+\begin{verbatim}
+>>> s = "Incredible India!!"
+>>> "India" in s
+True
+>>> "!!" in s
+True
+>>> "#" in s
+False
+>>> 
+\end{verbatim}
 \subsection{Iteration on string}
 You can iterate on the string using for loop. For loop automatically stops when string ended, you do not need to provide length of the string.
 \begin{verbatim}
@@ -423,6 +437,39 @@ l
 o
 \end{verbatim}
 \subsection{String Slicing}
+It will be more useful if strings are able to access using Python's array like syntax. Here in Python indexing is always starts with zero.\\
+In python you can use -1, -2.. and so on to access the characters in the string, it will start accessing it from end of the string.
+\begin{verbatim}
+>>> s = "Hello"
+>>> s[0]
+'H'
+>>> s[-1]
+'o'
+\end{verbatim} 
+Python will give you more easy syntax to access the string. In python you can access the strings with the following syntax.
+\begin{verbatim}
+[start:stop:jump]
+\end{verbatim}
+Start is from where you want to start accessing the string.\\
+Stop is to where you want to stop accessing the string.\\
+Jump is for jumping on the string.\\
+Let's see few examples:
+\begin{verbatim}
+>>> s[2:]   # It will print all the string from 2.
+'llo'
+>>> s[2:3]  # It will print string between index 2 to 3.
+'l'
+>>> s[:3]   # It will print the string till 3.
+'Hel'
+>>> s[::2]  # It will jump on the string.
+'Hlo'
+>>> s[-1:]  # It will print the string starting with o char.
+'o'
+>>> s[:-1]  # It will print the string expect last char.
+'Hell'
+>>> s[::-1] # It will reverse the string
+'olleH'
+\end{verbatim}
 
 \section{Lists}
 Lists are the basic data structure in the Python. Lists are nothing but the array but they do not have fixed size, and they are heterogeneous. Lists can accept different type of elements.
@@ -464,83 +511,220 @@ On lists you can perform different operations. You can add two lists. Ex:
 >>> l + l1
 [1, 2, 3, 4, 5, 6]
 \end{verbatim}
-\subsection{Iteration on Lists}
-\subsection{List Slicing}
-\section{Functions}
+You can multiply to list by number. It will create it's references but not the actual list.
 \begin{verbatim}
->>> def add():
-...     print(10 + 20)
+>>> [1] * 3
+[1, 1, 1]
+\end{verbatim}
+\subsection{Iteration on Lists}
+You can iterate on the list with for loop and using while loop.
+\begin{verbatim}
+>>> l = [1, 2, 3]
+>>> for i in l:
+...     print(i)
 ... 
->>> add()
-30
->>> def add():
-...     return 10+20
+1
+2
+3
+>>> i = 0
+>>> while i < len(l):
+...     print(l[i])
+...     i += 1
 ... 
->>> add()
-30
->>> t = add()
->>> t
-30
->>> def add():
-...     return 10+20
-... 
->>> def add():
-...     print(10 + 20)
-... 
->>> 
->>> t = add()
-30
->>> print(t)
-None
->>> 
-
->>> print_hello()
-Hello
->>> print_hello
-<function print_hello at 0x7f90fb85fae8>
->>> def add():
-...     print(10 + 20)
-... 
->>> 
->>> add()
-30
->>> def add():
-...     print("Addition : {}".format(10 + 20))
-... 
->>> add()
-Addition : 30
->>> a = add()
-Addition : 30
->>> print(a)
-None
->>> def add():
-...     return 10 + 20
-... 
->>> a = add()
->>> a
-30
->>> 
-
-
->>> def add(a, b):
-...     return a + b
-... 
->>> add()
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-TypeError: add() missing 2 required positional arguments: 'a' and 'b'
->>> add(109, 23)
-132
->>> add(109)
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-TypeError: add() missing 1 required positional argument: 'b'
->>> add("abc", "def")
-'abcdef'
->>> add([1], [2])
+1
+2
+3
+>>>
+\end{verbatim}
+\subsection{List Slicing}
+List slicing is same as string slicing. See the following few examples.
+\begin{verbatim}
+>>> l
+[1, 2, 3]
+>>> l[0]
+1
+>>> l[:1]
+[1]
+>>> l[:2]
 [1, 2]
+>>> l[0:2]
+[1, 2]
+>>> l[0::2]
+[1]
+>>> l[::-1]
+[3, 2, 1]
 >>> 
 \end{verbatim}
 
+\section{Tuples}
+Tuples are same like lists. It is represent using round bracket $'('$ and $')'$.\\
+Tuples are immutable objects, those can not be modified.
+You can not update the value in the Tuple.
+You can not add or remove the elements in the Tuple.
+\begin{verbatim}
+>>> t = tuple()
+>>> t
+()
+>>> t = (10, 20, 30)
+>>> t
+(10, 20, 30)
+>>>
+\end{verbatim}
+\subsubsection{Tuple methods}
+You can check the properties of the Tuples using \textbf{dir} method. You will find only two properties.
+\begin{itemize}
+\item count(): It will give you the count of the elements in the tuple.
+\item index(): It will give you the index of the element.
+\end{itemize}
+\subsubsection{Operations on Tuples}
+As we saw in the lists, you can add two Tuples. Ex:
+\begin{verbatim}
+>>> t
+(10, 20, 30)
+>>> t + t
+(10, 20, 30, 10, 20, 30)
+>>>
+\end{verbatim}
+You can multiply the Tuple by number. It will create it's references, but not the actual list.
+\begin{verbatim}
+>>> t * 3
+(10, 20, 30, 10, 20, 30, 10, 20, 30)
+\end{verbatim}
+\subsubsection{Iteration on Tuples}
+You can iterate on the list using for loop and while loop.
+\begin{verbatim}
+>>> for i in t:
+...     print(i)
+... 
+10
+20
+30
+>>> i = 0
+>>> while i < len(t):
+...     print(t[i])
+...     i += 1
+... 
+10
+20
+30
+>>> 
+\end{verbatim}
+\subsubsection{Tuple Slicing}
+You can perform slicing operations on the lists. See following few examples:
+\begin{verbatim}
+>>> t[0]
+10
+>>> t[:2]
+(10, 20)
+>>> t[2:5]
+(30, 40, 50)
+>>> t[4:]
+(50, 60, 70)
+>>> t[4::-1]
+(50, 40, 30, 20, 10)
+>>> t[::2]
+(10, 30, 50, 70)
+>>> 
+\end{verbatim}
+\section{Dictionaries}
+Dictionaries are based on the hash tables data structure in C. Dictionaries are defined using key and value. You can use curly braces ${}$ to define the dictionaries.
 
+Dictionaries are based on key and values. For each value there is one  key associated with it. 
+\begin{verbatim}
+>>> d = {}
+>>> d = {'country': 'India', 
+...      'capital': 'Delhi', 
+...      'states': 29}
+>>> d
+{'country': 'India', 'capital': 'Delhi', 'states': 29}
+\end{verbatim}
+Dictionaries are based on key and value pair.
+
+\section{Functions}
+%\begin{verbatim}
+%>>> def add():
+%...     print(10 + 20)
+%... 
+%>>> add()
+%30
+%>>> def add():
+%...     return 10+20
+%... 
+%>>> add()
+%30
+%>>> t = add()
+%>>> t
+%30
+%>>> def add():
+%...     return 10+20
+%... 
+%>>> def add():
+%...     print(10 + 20)
+%... 
+%>>> 
+%>>> t = add()
+%30
+%>>> print(t)
+%None
+%>>> 
+%
+%>>> print_hello()
+%Hello
+%>>> print_hello
+%<function print_hello at 0x7f90fb85fae8>
+%>>> def add():
+%...     print(10 + 20)
+%... 
+%>>> 
+%>>> add()
+%30
+%>>> def add():
+%...     print("Addition : {}".format(10 + 20))
+%... 
+%>>> add()
+%Addition : 30
+%>>> a = add()
+%Addition : 30
+%>>> print(a)
+%None
+%>>> def add():
+%...     return 10 + 20
+%... 
+%>>> a = add()
+%>>> a
+%30
+%>>> 
+%
+%
+%>>> def add(a, b):
+%...     return a + b
+%... 
+%>>> add()
+%Traceback (most recent call last):
+%  File "<stdin>", line 1, in <module>
+%TypeError: add() missing 2 required positional arguments: 'a' and 'b'
+%>>> add(109, 23)
+%132
+%>>> add(109)
+%Traceback (most recent call last):
+%  File "<stdin>", line 1, in <module>
+%TypeError: add() missing 1 required positional argument: 'b'
+%>>> add("abc", "def")
+%'abcdef'
+%>>> add([1], [2])
+%[1, 2]
+%>>> 
+%\end{verbatim}
+\section{Decorators}
+\section{Exception Handling}
+\section{Class}
+\section{File Operations}
+\section{Modules}
+\subsection{sys module}
+\subsection{os module}
+\subsection{re module}
+\subsection{sqlite module}
+\section{Python Built In methods}
+\part{Testing with Python}
+\part{Django}
 \end{document}
