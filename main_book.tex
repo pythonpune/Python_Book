@@ -1,0 +1,546 @@
+\documentclass[letterpaper,12pt]{book}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{geometry}
+
+\renewcommand{\familydefault}{Ubuntu}
+ 
+\lstset{%
+  basicstyle=\ttfamily,
+  language=[LaTeX]{TeX},
+}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=blue,
+    filecolor=black,
+    linkcolor=blue,
+    urlcolor=black}
+
+
+\begin{document}
+\tableofcontents
+\part{Introduction to Python3}
+
+\chapter{Getting started with Python3}
+
+\section{Python3 Interpretor}
+If you are new to Python then we will suggest you should start with any Linux OS, it will give you more scope to design the program and other tools. In this tutorial I'm using Fedora Linux to tech you how to start with \texttt{Python3}. Basically Python language is developed in C language. Python is one of the easy language to learn and you can start with it easily.
+Let's get started with Python3 interpretor. You need to type \texttt{python3} in to your interpreter and you are here.
+
+\begin{verbatim}
+$ python3
+Python 3.7.0 (default, Sep 10 2018, 16:52:22) 
+[GCC 4.8.5 20150623 (Red Hat 4.8.5-28)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+\end{verbatim}
+\subsection{Operators}
+As I mentioned, Python is interpreted language, you will give input to it and it will give you output instantly.
+
+You can start with additions of numbers.
+\begin{verbatim}
+>>> 10 + 20
+30
+>>> 30 - 10
+20
+>>> 10 * 2
+20
+>>> 10 / 2
+5.0
+>>> 10 // 2
+5
+>>> 10 % 2
+0
+>>> 
+\end{verbatim}
+In above example you could see that as soon as the input is given, Python interpreter is giving output.
+
+\paragraph{}
+In Python // operator have special meaning. It will return you the absolute result, while / operator will return result in the float.
+
+\subsection{Relational Operators}
+In python you can directly compare two numbers, Python interpreter provide functionality to compare two numbers which most of the language do not provide.
+
+For more clarification see the following examples:
+\begin{verbatim}
+>>> 10 == 10
+True
+>>> 10 > 10
+False
+>>> 10 < 10
+False
+>>> 10 <= 10
+True
+>>> 10 >= 10
+True
+>>> 10 != 10
+False
+\end{verbatim} 
+
+\subsection{Bitwise Operators}
+Bitwise operators are used to perform bit operations on the numbers. Those numbers are treated as string of bits written in twos complement binary.
+\begin{itemize}
+\item 0 is written as "0"
+\item 1 is written as "1"
+\item 2 is written as "10"
+\item 3 is "11"
+\item .
+\item .
+\item 1029 is  ``10000000101" == 2**10 + 2**2 + 2**0 == 1024 + 4 + 1
+\end{itemize}
+
+\subsubsection{Operators}
+\begin{itemize}
+\item $x \ll y$ : $x$ operator is shifted to left by $y$ bits and it return result of $x$ with shifted $y$ bits. It is same as $x * 2 ** y$
+\begin{verbatim}
+>>> 3<<2
+12
+>>> 3*2**2
+12
+\end{verbatim}
+\item $x \gg y$ : $x$ operator is shifted to right by $y$ bits and it return result of $x$ with shifted $y$ bits. It is same as $x // 2 ** y$.
+\begin{verbatim}
+>>> 8>>2
+2
+>>> 8//2**2
+2
+\end{verbatim}
+\item $x \& y $: Bitwise AND, each bit of output is 1 if corresponding bit of $x$ AND $y$ is 1, otherwise it is 0
+\begin{verbatim}
+>>> 8 & 8
+8
+>>> 8 & 2
+0
+\end{verbatim}
+\item $x | y$ : Bitwise OR, each bit of output is 1 if corresponding bit of $x$ AND $y$ is 1, otherwise it is 0
+\begin{verbatim}
+>>> 2 | 2
+2
+>>> 2 | 4
+6
+>>> 
+\end{verbatim}
+\item $\sim x $: Complement, It will gives complement of $x$, the number you get by switching each 1 for a 0 and each 0 for a 1. This is the same as -x - 1. 
+\begin{verbatim}
+>>> ~2
+-3
+\end{verbatim}
+\item $x \wedge y$ :  Does a ``bitwise exclusive or". Each bit of the output is the same as the corresponding bit in $x$ if that bit in $y$ is 0, and it's the complement of the bit in $x$ if that bit in $y$ is 1.
+\begin{verbatim}
+>>> 1^1
+0
+>>> 1^2
+3
+\end{verbatim}
+\end{itemize}
+
+\subsection{Keywords}
+
+In any programming language keywords are present, those are nothing but reserve words. You can not use those words for any variable assignment or for function deceleration.
+
+List of keywords present in the Python\\
+\begin{center}
+\begin{tabular}{llll}
+class & False & None & True\\
+and & as & assert & break \\
+continue & def & del & elif \\
+else & expect & finally & for \\
+from & global & if & import \\
+in & is & lambda & not \\
+or & pass & raise & return \\
+try & while & with & yield
+\end{tabular}
+\end{center}
+
+\section{Variables}
+Python is dynamically typed language, it means it will decide what to do with your input at the run time. 
+
+Variable declaration and definition in python is something different. If you want to define integer in other languages, for that you follow this syntax \texttt{<data\textunderscore type> <variable\textunderscore name> = <value>}
+
+In python you can directly assign value to the variable without specifying it's data type. Once you assign value to it Python interpreter will automatically parse it.
+It's general syntax is: $<$variable1$>$...$<$variablen$>$ = $<$value1$>$...$<$valuen$>$
+\begin{verbatim}
+>>> a = 10
+>>> type(a)
+<class `int'>
+\end{verbatim}
+In above example you assigned \texttt{a = 10} and \texttt{type()} function shows it belongs to the \texttt{class int}.
+Now let's assign \texttt{a = ``Hello''} and check it's type.
+\begin{verbatim}
+>>> a = "Hello"
+>>> type(a)
+<class `str'>
+\end{verbatim}
+In above example you could see that you can assign different value to same variable and interpreter accepted it.
+\subsection{Indentation}
+In python body of the statement is not defined by the curly brackets, you have to define body using indentations i.e. spaces.
+
+If you are writing any statement, consider, if statement once you write if statement then you need to specify colon (:), then on the next line specify the spaces to define it's body.
+
+\begin{verbatim}
+if ch == 1:
+    print("You selected 1st choice")
+\end{verbatim}
+For spaces you can either type 4 spaces or you can use tab. \\
+NOTE: Mixture of both space and tabs will throw an exception.
+
+\section{Conditional statements}
+\subsection{If statement}
+If statement is conditional statement. It is used to check the condition between two variables.
+
+Any non zero value is considered as a True value. In python it's syntax is little bit different. 
+
+True keyword is used to represent boolean value. In first statement condition is true so it will print the if block. In second statement $ 10 > 10 $ condition is false, it will not print ``True statement".
+\begin{verbatim}
+>>> if True:
+...     print("True statement")
+... 
+True statement
+>>> if 10>10:
+...     print("True statement")
+... 
+>>> 
+\end{verbatim}
+
+\subsection{if..else statement}
+Like I mentioned in the above statement if is the conditional statement, in if statement if the condition is true, then it will execute the if block or it will skip it. 
+
+Here if condition is false then, else block got executed.
+\begin{verbatim}
+>>> if False:
+...     print("If block is printed")
+... else:
+...     print("Else block is printed")
+... 
+Else block is printed
+>>> 
+\end{verbatim}
+
+
+\subsection{if..elif statement}
+In the python switch statement is not present. If you want to check any choice which is matches to the multiple statement then you need to use elif statement. 
+
+elif statement is check the condition, if the condition is true then it will execute the block or else block.
+
+You can write as many elif statement as you want. But remember if one elif statement is executed it will not execute the remaining statement.
+
+\begin{verbatim}
+>>> no = 10
+>>> if no > 100:
+...     print("no is grater")
+... elif no < 10:
+...     print("No is < 10")
+... elif no == 10:
+...     print("No is equal to 10")
+... elif no == 10:
+...     print("No is 10")
+... else:
+...     print("Unknown value of no")
+... 
+No is equal to 10
+\end{verbatim}
+
+In above statement you can see that once the condition is true it skip the all the next elif statements.
+
+
+\section{Loops}
+In Python there are two main loops:
+\begin{enumerate}
+\item For loop
+\item While loop
+\end{enumerate}
+
+\subsection{For loop}
+For loop is basic loop. It is designed in such a way that it can iterate on the multiple objects.
+
+Consider the following example:
+\begin{verbatim}
+>>> for i in range(10):
+...     print(i)
+... 
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+>>>
+\end{verbatim}
+
+In above example range is the inbuilt function which will return the list of the integer numbers from 0 to 9.
+
+For loop by default pointing to zero location and printing the value.
+In for loop values are auto increment.
+
+\subsection{While loop}
+
+While loop is used where for loop have limitations. One thing about the for loop it is basically used for iterating the objects. While loop is used to perform some mathematical operations or to perform some operations on user defined inputs etc.
+
+\begin{verbatim}
+>>> i = 0
+>>> while i < 10:
+...     print(i)
+...     i = i + 1
+... 
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+>>> 
+\end{verbatim}
+
+\subsection{Continue statement}
+Continue statement is used to transfer the program execution back to the loop.
+
+\begin{verbatim}
+>>> i = 0
+>>> while i < 10:
+...     i = i + 1
+...     if i == 5:
+...             continue
+...     print(i)
+... 
+1
+2
+3
+4
+6
+7
+8
+9
+10
+>>> 
+\end{verbatim}
+In above example the control statement is forwarded to while loop again when condition is true. In output you can observe that it is not printed 5.
+
+\subsection{Break statement}
+Break statement is used to exit the loop. It's uses is same as continue statement.
+\begin{verbatim}
+>>> i = 0
+>>> while i < 10:
+...     i = i + 1
+...     if i == 5:
+...             break
+...     print(i)
+... 
+1
+2
+3
+4
+>>> 
+\end{verbatim}
+
+\section{Strings}
+In Python strings are defined using either ` quotes or `` quotes, but all of them treated as equally. When write a string it is a object of class \texttt{str}. 
+\begin{verbatim}
+>>> `hello' == "hello"
+True
+>>> type('hello')
+<class 'str'>
+\end{verbatim}
+If you specify \textbf{hello} without quotes then python interpreter will treat it as variable. If interpreter will find any variable then it will work otherwise it will throw an error.
+\begin{verbatim}
+>>> hello
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'hello' is not defined
+\end{verbatim}
+You can check properties of string using \texttt{dir()} method.
+\begin{verbatim}
+>>> dir('hello')
+['__add__', '__class__', '__contains__', '__delattr__', 
+'__dir__', '__doc__', '__eq__', '__format__', '__ge__', 
+'__getattribute__', '__getitem__', '__getnewargs__', 
+'__gt__', '__hash__', '__init__', '__init_subclass__', 
+'__iter__', '__le__', '__len__', '__lt__', '__mod__', 
+'__mul__', '__ne__', '__new__', '__reduce__', 
+'__reduce_ex__', '__repr__', '__rmod__', '__rmul__', 
+'__setattr__', '__sizeof__', '__str__', '__subclasshook__',
+'capitalize', 'casefold', 'center', 'count', 'encode',
+'endswith', 'expandtabs', 'find', 'format', 'format_map',
+'index', 'isalnum', 'isalpha', 'isdecimal', 'isdigit',
+'isidentifier', 'islower', 'isnumeric', 'isprintable',
+'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower',
+'lstrip', 'maketrans', 'partition', 'replace', 'rfind',
+'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split',
+'splitlines', 'startswith', 'strip', 'swapcase', 'title',
+'translate', 'upper', `zfill']
+\end{verbatim}
+You can use the string properties using \texttt{.} symbol.
+\begin{verbatim}
+>>> s = `Hello'
+>>> s.upper()
+HELLO
+\end{verbatim}
+\subsection{String Concatenation}
+You can concat two string using \texttt{+} operator.
+\begin{verbatim}
+>>> h = "Hello "
+>>> i = "World"
+>>> h + i
+'Hello World'
+\end{verbatim}
+\subsection{String Multiplication}
+You can not subtract or divide string in Python. But you can multiply the strings with Python. When you multiply with the number it will create that strings references.
+\begin{verbatim}
+>>> "Hello" * 5
+`HelloHelloHelloHelloHello'
+\end{verbatim}
+If you can multiply to the string with the numbers then it is easy to print star pattern in Python.
+\begin{verbatim}
+>>> for i in range(1, 6):
+...     print(`*' * i)
+... 
+*
+**
+***
+****
+*****
+\end{verbatim}
+\subsection{Iteration on string}
+You can iterate on the string using for loop. For loop automatically stops when string ended, you do not need to provide length of the string.
+\begin{verbatim}
+>>> for i in 'hello':
+...     print(i)
+...
+h
+e
+l
+l
+o
+\end{verbatim}
+\subsection{String Slicing}
+
+\section{Lists}
+Lists are the basic data structure in the Python. Lists are nothing but the array but they do not have fixed size, and they are heterogeneous. Lists can accept different type of elements.
+
+You can define the lists using following ways:
+\begin{verbatim}
+>>> l = []
+>>> l1 = list()
+\end{verbatim}
+Above statements will create the empty lists. Here \texttt{list} is the inbuilt method used for creating the list instance.
+
+Again using \texttt{dir()} method you can check the properties of the lists.
+If you want to add the element in to the empty list then you can use \textsc{append} method to add element in to list.
+\begin{verbatim}
+>>> l.append(10)
+>>> l
+[10]
+\end{verbatim}
+\subsection{List methods}
+\begin{itemize}
+\item append(): To append element to the list.
+\item clear(): To clear the list.
+\item copy(): To copy the list in to the another variable.
+\item count(): Count the element occurrences in the list.
+\item extend(): To extend the existing list with another.
+\item index(): Index of the element.
+\item insert(): To insert the element at specific location.
+\item pop(): To pop the element from the list.
+\item remove(): To remove the element from the list.
+\item reverse(): To reverse the string.
+\item sort(): To sort the elements in the string.
+\end{itemize}
+
+\subsection{Operation On Lists}
+On lists you can perform different operations. You can add two lists. Ex:
+\begin{verbatim}
+>>> l = [1, 2, 3]
+>>> l1 = [4, 5, 6]
+>>> l + l1
+[1, 2, 3, 4, 5, 6]
+\end{verbatim}
+\subsection{Iteration on Lists}
+\subsection{List Slicing}
+\section{Functions}
+\begin{verbatim}
+>>> def add():
+...     print(10 + 20)
+... 
+>>> add()
+30
+>>> def add():
+...     return 10+20
+... 
+>>> add()
+30
+>>> t = add()
+>>> t
+30
+>>> def add():
+...     return 10+20
+... 
+>>> def add():
+...     print(10 + 20)
+... 
+>>> 
+>>> t = add()
+30
+>>> print(t)
+None
+>>> 
+
+>>> print_hello()
+Hello
+>>> print_hello
+<function print_hello at 0x7f90fb85fae8>
+>>> def add():
+...     print(10 + 20)
+... 
+>>> 
+>>> add()
+30
+>>> def add():
+...     print("Addition : {}".format(10 + 20))
+... 
+>>> add()
+Addition : 30
+>>> a = add()
+Addition : 30
+>>> print(a)
+None
+>>> def add():
+...     return 10 + 20
+... 
+>>> a = add()
+>>> a
+30
+>>> 
+
+
+>>> def add(a, b):
+...     return a + b
+... 
+>>> add()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: add() missing 2 required positional arguments: 'a' and 'b'
+>>> add(109, 23)
+132
+>>> add(109)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: add() missing 1 required positional argument: 'b'
+>>> add("abc", "def")
+'abcdef'
+>>> add([1], [2])
+[1, 2]
+>>> 
+\end{verbatim}
+
+
+\end{document}
