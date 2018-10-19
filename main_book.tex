@@ -27,7 +27,7 @@
 \chapter{Getting started with Python3}
 
 \section{Python3 Interpretor}
-If you are new to Python then we will suggest you should start with any Linux OS, it will give you more scope to design the program and other tools. In this tutorial I'm using Fedora Linux to tech you how to start with \texttt{Python3}. Basically Python language is developed in C language. Python is one of the easy language to learn and you can start with it easily.
+If you are new to Python then we will suggest you should start with any Linux OS, it will give you more scope to design the program and other tools. In this tutorial I'm using Fedora Linux to teach you how to start with \texttt{Python3}. Basically Python language is developed in C language. Python is one of the easy language to learn and you can start with it easily.
 Let's get started with Python3 interpretor. You need to type \texttt{python3} in to your interpreter and you are here.
 
 \begin{verbatim}
@@ -638,85 +638,187 @@ Dictionaries are based on key and values. For each value there is one  key assoc
 >>> d
 {'country': 'India', 'capital': 'Delhi', 'states': 29}
 \end{verbatim}
-Dictionaries are based on key and value pair.
+You can access the values using associated keys, and you can replace it using simple way.
+\begin{verbatim}
+>>> d['states']
+29
+>>> d['states'] = 30
+>>> d
+{'country': 'India', 'capital': 'Delhi', 'states': 30}
+>>> d['Languages'] = ['Hindi', 'English', 'Tamil', 'Malyalum',
+ 'Marathi', 'Gujarati']
+
+\end{verbatim}
+Keys in the dictionary are anything those can be string, integer, floating point values or any module object. 
+\begin{verbatim}
+>>> import os
+>>> d = {}
+>>> d[os] = 'os'
+>>> d[1] = 'One'
+>>> d['two'] = 2
+>>> d[3.3] = 'three.three'
+>>> d
+{<module 'os' from '/usr/lib64/python3.6/os.py'>: 'os', 1: 'One', 'two': 2, 3.3: 'three.three'}
+\end{verbatim}
+\subsection{Dictionary Methods}
+Dictionary have following methods:
+\begin{itemize}
+\item clear() : To clear the dictionary.
+\item copy() : To copy the dictionary to the another variable.
+\item get() : Get is used for getting the value of the specific key in the dictionary or it will return \texttt{None}.
+\item items() : This method will return the all the items in the dictionary inside the list. This list will consist the pair of the key and value tuple.
+\item keys() : This method will return all the keys inside the dict.
+\item pop() : This method will pop specified key and return the value.
+\item popitem(): This method will pop any random key and value from they dictionary, it will return the tuple of key and value.
+\item update(): This method will update the dictionary with new values or old keys with new values.
+\item values() : This method will return the list of the all values.
+\item fromkeys() : This method will return the new dictionary with keys from iterable and values equal to values.
+\end{itemize}
+\subsection{Iteration on Dictionary}
+You can iterate on the dictionary using the for loop. By default it will iterate on the keys.
+\begin{verbatim}
+>>> d = {'one' : 1, 'two': 2, 'three': 3}
+>>> for i in d:
+...     print(i)
+... 
+one
+two
+three
+>>> 
+\end{verbatim}
+In the dictionary you can iterate only values. For that you need to use \texttt{values()} method.
+\begin{verbatim}
+>>> for i in d.values():
+...     print(i)
+... 
+1
+2
+3
+>>> 
+\end{verbatim}
+Using the beauty of the for loop you can iterate on the key and value  at the same time. For that you can use \texttt{items()} method.
+\begin{verbatim}
+>>> for i, j in d.items():
+...     print(i, j)
+... 
+one 1
+two 2
+three 3
+>>> 
+\end{verbatim}
 
 \section{Functions}
-%\begin{verbatim}
-%>>> def add():
-%...     print(10 + 20)
-%... 
-%>>> add()
-%30
-%>>> def add():
-%...     return 10+20
-%... 
-%>>> add()
-%30
-%>>> t = add()
-%>>> t
-%30
-%>>> def add():
-%...     return 10+20
-%... 
-%>>> def add():
-%...     print(10 + 20)
-%... 
-%>>> 
-%>>> t = add()
-%30
-%>>> print(t)
-%None
-%>>> 
-%
-%>>> print_hello()
-%Hello
-%>>> print_hello
-%<function print_hello at 0x7f90fb85fae8>
-%>>> def add():
-%...     print(10 + 20)
-%... 
-%>>> 
-%>>> add()
-%30
-%>>> def add():
-%...     print("Addition : {}".format(10 + 20))
-%... 
-%>>> add()
-%Addition : 30
-%>>> a = add()
-%Addition : 30
-%>>> print(a)
-%None
-%>>> def add():
-%...     return 10 + 20
-%... 
-%>>> a = add()
-%>>> a
-%30
-%>>> 
-%
-%
-%>>> def add(a, b):
-%...     return a + b
-%... 
-%>>> add()
-%Traceback (most recent call last):
-%  File "<stdin>", line 1, in <module>
-%TypeError: add() missing 2 required positional arguments: 'a' and 'b'
-%>>> add(109, 23)
-%132
-%>>> add(109)
-%Traceback (most recent call last):
-%  File "<stdin>", line 1, in <module>
-%TypeError: add() missing 1 required positional argument: 'b'
-%>>> add("abc", "def")
-%'abcdef'
-%>>> add([1], [2])
-%[1, 2]
-%>>> 
-%\end{verbatim}
+Function is a block of statements which will perform single action. Function will provide modular code, which will be more easy to read. You can reuse this code to perform some action which will save your time.
+
+In Python you can define the function using the \texttt{def} keyword. 
+After the def keyword you define the name of the function and later in the parenthesis you provide the arguments, after the arguments line ends with the \texttt{$:$} which indicate that from the next line body of the function will be begin.
+\begin{verbatim}
+>>> def add():
+...     print("Addition : ", 10 + 20)
+... 
+>>> add()
+Addition : 30
+\end{verbatim}
+Above code will show the simple example of the function. This add function will print the addition of the two numbers. You can call any function using \texttt{function\textunderscore name$($args$)$} syntax, for Ex. \texttt{add()} in above code.
+
+In Python you can return the values from the function using \texttt{return} keyword. Below code shows some example of the function with with return values.
+\begin{verbatim}
+>>> def add():
+...     return 10+20
+... 
+>>> add()
+30
+>>> t = add()
+>>> t
+30
+>>> def add():
+...     return 10+20
+... 
+>>> def sub():
+...     print(20 - 10)
+... 
+>>> 
+>>> u = sub()
+10
+>>> print(u)
+None
+>>> 
+\end{verbatim}
+In above example add function will return the value, which is addition of the two numbers. You can store that value in a variable for later use. 
+\paragraph{}
+Let's see other side, what if function do not return any value? In that case it will return \texttt{None} keyword. You can see the example in above code with function sub. Function will print the subtraction but it will not return anything. By default the value is \texttt{None}.
+\subsection{Functions with arguments}
+
+\begin{verbatim}
+
+>>> def add(a, b):
+...     return a + b
+... 
+>>> add()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: add() missing 2 required positional arguments: 'a' and 'b'
+>>> add(109, 23)
+132
+>>> add(109)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: add() missing 1 required positional argument: 'b'
+>>> add("abc", "def")
+'abcdef'
+>>> add([1], [2])
+[1, 2]
+>>> 
+\end{verbatim}
 \section{Decorators}
 \section{Exception Handling}
+\begin{verbatim}
+try:
+    int("abc")
+except:
+    print("Error occured")
+
+print("Hello")
+
+\end{verbatim}
+\begin{verbatim}
+while True:
+    val = input("Enter Value: ")
+    try:
+        int(val)
+        break
+    except:
+        print("Invalid value inserted.")
+        continue
+
+print("Hello")
+$ python3 /tmp/exception.py
+Enter Value: abc
+Invalid value inserted.
+Enter Value: 123sad
+Invalid value inserted.
+Enter Value: 123
+Hello
+\end{verbatim}
+\begin{verbatim}
+d = {1:'abc'}
+
+while True:
+    val = input("Enter Value: ")
+    try:
+        int(val)
+        d[int(val)]
+        break
+    except ValueError:
+        print("Invalid value inserted.")
+    except KeyError:
+        print("Key is not available in dict")
+    except Exception as e:
+        print(e)
+        print("Error occured")
+
+print("Hello")
+\end{verbatim}
 \section{Class}
 \section{File Operations}
 \section{Modules}
