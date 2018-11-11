@@ -10,6 +10,29 @@
   basicstyle=\ttfamily,
   language=[LaTeX]{TeX},
 }
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
 
 \usepackage{hyperref}
 \hypersetup{
@@ -30,18 +53,18 @@
 If you are new to Python then we will suggest you should start with any Linux OS, it will give you more scope to design the program and other tools. In this tutorial I'm using Fedora Linux to teach you how to start with \texttt{Python3}. Basically Python language is developed in C language. Python is one of the easy language to learn and you can start with it easily.
 Let's get started with Python3 interpretor. You need to type \texttt{python3} in to your interpreter and you are here.
 
-\begin{verbatim}
+\begin{lstlisting}
 $ python3
 Python 3.7.0 (default, Sep 10 2018, 16:52:22) 
 [GCC 4.8.5 20150623 (Red Hat 4.8.5-28)] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
-\end{verbatim}
+\end{lstlisting}
 \subsection{Operators}
 As I mentioned, Python is interpreted language, you will give input to it and it will give you output instantly.
 
 You can start with additions of numbers.
-\begin{verbatim}
+\begin{lstlisting}
 >>> 10 + 20
 30
 >>> 30 - 10
@@ -55,7 +78,7 @@ You can start with additions of numbers.
 >>> 10 % 2
 0
 >>> 
-\end{verbatim}
+\end{lstlisting}
 In above example you could see that as soon as the input is given, Python interpreter is giving output.
 
 \paragraph{}
@@ -65,7 +88,7 @@ In Python // operator have special meaning. It will return you the absolute resu
 In python you can directly compare two numbers, Python interpreter provide functionality to compare two numbers which most of the language do not provide.
 
 For more clarification see the following examples:
-\begin{verbatim}
+\begin{lstlisting}
 >>> 10 == 10
 True
 >>> 10 > 10
@@ -78,7 +101,7 @@ True
 True
 >>> 10 != 10
 False
-\end{verbatim} 
+\end{lstlisting} 
 
 \subsection{Bitwise Operators}
 Bitwise operators are used to perform bit operations on the numbers. Those numbers are treated as string of bits written in twos complement binary.
@@ -95,46 +118,46 @@ Bitwise operators are used to perform bit operations on the numbers. Those numbe
 \subsubsection{Operators}
 \begin{itemize}
 \item $x \ll y$ : $x$ operator is shifted to left by $y$ bits and it return result of $x$ with shifted $y$ bits. It is same as $x * 2 ** y$
-\begin{verbatim}
+\begin{lstlisting}
 >>> 3<<2
 12
 >>> 3*2**2
 12
-\end{verbatim}
+\end{lstlisting}
 \item $x \gg y$ : $x$ operator is shifted to right by $y$ bits and it return result of $x$ with shifted $y$ bits. It is same as $x // 2 ** y$.
-\begin{verbatim}
+\begin{lstlisting}
 >>> 8>>2
 2
 >>> 8//2**2
 2
-\end{verbatim}
+\end{lstlisting}
 \item $x \& y $: Bitwise AND, each bit of output is 1 if corresponding bit of $x$ AND $y$ is 1, otherwise it is 0
-\begin{verbatim}
+\begin{lstlisting}
 >>> 8 & 8
 8
 >>> 8 & 2
 0
-\end{verbatim}
+\end{lstlisting}
 \item $x | y$ : Bitwise OR, each bit of output is 1 if corresponding bit of $x$ AND $y$ is 1, otherwise it is 0
-\begin{verbatim}
+\begin{lstlisting}
 >>> 2 | 2
 2
 >>> 2 | 4
 6
 >>> 
-\end{verbatim}
+\end{lstlisting}
 \item $\sim x $: Complement, It will gives complement of $x$, the number you get by switching each 1 for a 0 and each 0 for a 1. This is the same as -x - 1. 
-\begin{verbatim}
+\begin{lstlisting}
 >>> ~2
 -3
-\end{verbatim}
+\end{lstlisting}
 \item $x \wedge y$ :  Does a ``bitwise exclusive or". Each bit of the output is the same as the corresponding bit in $x$ if that bit in $y$ is 0, and it's the complement of the bit in $x$ if that bit in $y$ is 1.
-\begin{verbatim}
+\begin{lstlisting}
 >>> 1^1
 0
 >>> 1^2
 3
-\end{verbatim}
+\end{lstlisting}
 \end{itemize}
 
 \subsection{Keywords}
@@ -162,28 +185,28 @@ Variable declaration and definition in python is something different. If you wan
 
 In python you can directly assign value to the variable without specifying it's data type. Once you assign value to it Python interpreter will automatically parse it.
 It's general syntax is: $<$variable1$>$...$<$variablen$>$ = $<$value1$>$...$<$valuen$>$
-\begin{verbatim}
+\begin{lstlisting}
 >>> a = 10
 >>> type(a)
 <class `int'>
-\end{verbatim}
+\end{lstlisting}
 In above example you assigned \texttt{a = 10} and \texttt{type()} function shows it belongs to the \texttt{class int}.
 Now let's assign \texttt{a = ``Hello''} and check it's type.
-\begin{verbatim}
+\begin{lstlisting}
 >>> a = "Hello"
 >>> type(a)
 <class `str'>
-\end{verbatim}
+\end{lstlisting}
 In above example you could see that you can assign different value to same variable and interpreter accepted it.
 \subsection{Indentation}
 In python body of the statement is not defined by the curly brackets, you have to define body using indentations i.e. spaces.
 
 If you are writing any statement, consider, if statement once you write if statement then you need to specify colon (:), then on the next line specify the spaces to define it's body.
 
-\begin{verbatim}
+\begin{lstlisting}
 if ch == 1:
     print("You selected 1st choice")
-\end{verbatim}
+\end{lstlisting}
 For spaces you can either type 4 spaces or you can use tab. \\
 NOTE: Mixture of both space and tabs will throw an exception.
 
@@ -194,7 +217,7 @@ If statement is conditional statement. It is used to check the condition between
 Any non zero value is considered as a True value. In python it's syntax is little bit different. 
 
 True keyword is used to represent boolean value. In first statement condition is true so it will print the if block. In second statement $ 10 > 10 $ condition is false, it will not print ``True statement".
-\begin{verbatim}
+\begin{lstlisting}
 >>> if True:
 ...     print("True statement")
 ... 
@@ -203,13 +226,13 @@ True statement
 ...     print("True statement")
 ... 
 >>> 
-\end{verbatim}
+\end{lstlisting}
 
 \subsection{if..else statement}
 Like I mentioned in the above statement if is the conditional statement, in if statement if the condition is true, then it will execute the if block or it will skip it. 
 
 Here if condition is false then, else block got executed.
-\begin{verbatim}
+\begin{lstlisting}
 >>> if False:
 ...     print("If block is printed")
 ... else:
@@ -217,7 +240,7 @@ Here if condition is false then, else block got executed.
 ... 
 Else block is printed
 >>> 
-\end{verbatim}
+\end{lstlisting}
 
 
 \subsection{if..elif statement}
@@ -227,7 +250,7 @@ elif statement is check the condition, if the condition is true then it will exe
 
 You can write as many elif statement as you want. But remember if one elif statement is executed it will not execute the remaining statement.
 
-\begin{verbatim}
+\begin{lstlisting}
 >>> no = 10
 >>> if no > 100:
 ...     print("no is grater")
@@ -241,7 +264,7 @@ You can write as many elif statement as you want. But remember if one elif state
 ...     print("Unknown value of no")
 ... 
 No is equal to 10
-\end{verbatim}
+\end{lstlisting}
 
 In above statement you can see that once the condition is true it skip the all the next elif statements.
 
@@ -257,7 +280,7 @@ In Python there are two main loops:
 For loop is basic loop. It is designed in such a way that it can iterate on the multiple objects.
 
 Consider the following example:
-\begin{verbatim}
+\begin{lstlisting}
 >>> for i in range(10):
 ...     print(i)
 ... 
@@ -272,7 +295,7 @@ Consider the following example:
 8
 9
 >>>
-\end{verbatim}
+\end{lstlisting}
 
 In above example range is the inbuilt function which will return the list of the integer numbers from 0 to 9.
 
@@ -283,7 +306,7 @@ In for loop values are auto increment.
 
 While loop is used where for loop have limitations. One thing about the for loop it is basically used for iterating the objects. While loop is used to perform some mathematical operations or to perform some operations on user defined inputs etc.
 
-\begin{verbatim}
+\begin{lstlisting}
 >>> i = 0
 >>> while i < 10:
 ...     print(i)
@@ -300,12 +323,12 @@ While loop is used where for loop have limitations. One thing about the for loop
 8
 9
 >>> 
-\end{verbatim}
+\end{lstlisting}
 
 \subsection{Continue statement}
 Continue statement is used to transfer the program execution back to the loop.
 
-\begin{verbatim}
+\begin{lstlisting}
 >>> i = 0
 >>> while i < 10:
 ...     i = i + 1
@@ -323,12 +346,12 @@ Continue statement is used to transfer the program execution back to the loop.
 9
 10
 >>> 
-\end{verbatim}
+\end{lstlisting}
 In above example the control statement is forwarded to while loop again when condition is true. In output you can observe that it is not printed 5.
 
 \subsection{Break statement}
 Break statement is used to exit the loop. It's uses is same as continue statement.
-\begin{verbatim}
+\begin{lstlisting}
 >>> i = 0
 >>> while i < 10:
 ...     i = i + 1
@@ -341,26 +364,26 @@ Break statement is used to exit the loop. It's uses is same as continue statemen
 3
 4
 >>> 
-\end{verbatim}
+\end{lstlisting}
 
 \section{Strings}
 In Python strings are defined using either ` quotes or `` quotes, but all of them treated as equally. When write a string it is a object of class \texttt{str}. 
-\begin{verbatim}
+\begin{lstlisting}
 >>> `hello' == "hello"
 True
 >>> type('hello')
 <class 'str'>
-\end{verbatim}
+\end{lstlisting}
 If you specify \textbf{hello} without quotes then python interpreter will treat it as variable. If interpreter will find any variable then it will work otherwise it will throw an error.
-\begin{verbatim}
+\begin{lstlisting}
 >>> hello
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 NameError: name 'hello' is not defined
-\end{verbatim}
+\end{lstlisting}
 \subsubsection{String Methods}
 You can check properties of string using \texttt{dir()} method.
-\begin{verbatim}
+\begin{lstlisting}
 >>> dir('hello')
 ['__add__', '__class__', '__contains__', '__delattr__', 
 '__dir__', '__doc__', '__eq__', '__format__', '__ge__', 
@@ -379,30 +402,30 @@ You can check properties of string using \texttt{dir()} method.
 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split',
 'splitlines', 'startswith', 'strip', 'swapcase', 'title',
 'translate', 'upper', `zfill']
-\end{verbatim}
+\end{lstlisting}
 You can use the string properties using \texttt{.} symbol.
-\begin{verbatim}
+\begin{lstlisting}
 >>> s = `Hello'
 >>> s.upper()
 HELLO
-\end{verbatim}
+\end{lstlisting}
 \subsection{Operation on strings}
 \subsubsection{String Concatenation}
 You can concat two string using \texttt{+} operator.
-\begin{verbatim}
+\begin{lstlisting}
 >>> h = "Hello "
 >>> i = "World"
 >>> h + i
 'Hello World'
-\end{verbatim}
+\end{lstlisting}
 \subsubsection{String Multiplication}
 You can not subtract or divide string in Python. But you can multiply the strings with Python. When you multiply with the number it will create that strings references.
-\begin{verbatim}
+\begin{lstlisting}
 >>> "Hello" * 5
 `HelloHelloHelloHelloHello'
-\end{verbatim}
+\end{lstlisting}
 If you can multiply to the string with the numbers then it is easy to print star pattern in Python.
-\begin{verbatim}
+\begin{lstlisting}
 >>> for i in range(1, 6):
 ...     print(`*' * i)
 ... 
@@ -411,10 +434,10 @@ If you can multiply to the string with the numbers then it is easy to print star
 ***
 ****
 *****
-\end{verbatim}
+\end{lstlisting}
 \subsubsection{Substring in String}
 To check substring is present in the string is too much easy in the Python. You can use \texttt{in} keyword to check the substring is present or not.
-\begin{verbatim}
+\begin{lstlisting}
 >>> s = "Incredible India!!"
 >>> "India" in s
 True
@@ -423,10 +446,10 @@ True
 >>> "#" in s
 False
 >>> 
-\end{verbatim}
+\end{lstlisting}
 \subsection{Iteration on string}
 You can iterate on the string using for loop. For loop automatically stops when string ended, you do not need to provide length of the string.
-\begin{verbatim}
+\begin{lstlisting}
 >>> for i in 'hello':
 ...     print(i)
 ...
@@ -435,26 +458,26 @@ e
 l
 l
 o
-\end{verbatim}
+\end{lstlisting}
 \subsection{String Slicing}
 It will be more useful if strings are able to access using Python's array like syntax. Here in Python indexing is always starts with zero.\\
 In python you can use -1, -2.. and so on to access the characters in the string, it will start accessing it from end of the string.
-\begin{verbatim}
+\begin{lstlisting}
 >>> s = "Hello"
 >>> s[0]
 'H'
 >>> s[-1]
 'o'
-\end{verbatim} 
+\end{lstlisting} 
 Python will give you more easy syntax to access the string. In python you can access the strings with the following syntax.
-\begin{verbatim}
+\begin{lstlisting}
 [start:stop:jump]
-\end{verbatim}
+\end{lstlisting}
 Start is from where you want to start accessing the string.\\
 Stop is to where you want to stop accessing the string.\\
 Jump is for jumping on the string.\\
 Let's see few examples:
-\begin{verbatim}
+\begin{lstlisting}
 >>> s[2:]   # It will print all the string from 2.
 'llo'
 >>> s[2:3]  # It will print string between index 2 to 3.
@@ -469,25 +492,25 @@ Let's see few examples:
 'Hell'
 >>> s[::-1] # It will reverse the string
 'olleH'
-\end{verbatim}
+\end{lstlisting}
 
 \section{Lists}
 Lists are the basic data structure in the Python. Lists are nothing but the array but they do not have fixed size, and they are heterogeneous. Lists can accept different type of elements.
 
 You can define the lists using following ways:
-\begin{verbatim}
+\begin{lstlisting}
 >>> l = []
 >>> l1 = list()
-\end{verbatim}
+\end{lstlisting}
 Above statements will create the empty lists. Here \texttt{list} is the inbuilt method used for creating the list instance.
 
 Again using \texttt{dir()} method you can check the properties of the lists.
 If you want to add the element in to the empty list then you can use \textsc{append} method to add element in to list.
-\begin{verbatim}
+\begin{lstlisting}
 >>> l.append(10)
 >>> l
 [10]
-\end{verbatim}
+\end{lstlisting}
 \subsection{List methods}
 \begin{itemize}
 \item append(): To append element to the list.
@@ -505,27 +528,27 @@ If you want to add the element in to the empty list then you can use \textsc{app
 
 \subsection{Operation On Lists}
 On lists you can perform different operations. You can add two lists. Ex:
-\begin{verbatim}
+\begin{lstlisting}
 >>> l = [1, 2, 3]
 >>> l1 = [4, 5, 6]
 >>> l + l1
 [1, 2, 3, 4, 5, 6]
-\end{verbatim}
+\end{lstlisting}
 You can multiply to list by number. It will create it's references but not the actual list.
-\begin{verbatim}
+\begin{lstlisting}
 >>> [1] * 3
 [1, 1, 1]
-\end{verbatim}
+\end{lstlisting}
 Elements in the lists can be checked using \texttt{in} keywords. It is same as checking the substring in string.
-\begin{verbatim}
+\begin{lstlisting}
 >>> 1 in l
 True
 >>> 10 in l
 False
-\end{verbatim}
+\end{lstlisting}
 \subsection{Iteration on Lists}
 You can iterate on the list with for loop and using while loop.
-\begin{verbatim}
+\begin{lstlisting}
 >>> l = [1, 2, 3]
 >>> for i in l:
 ...     print(i)
@@ -542,10 +565,10 @@ You can iterate on the list with for loop and using while loop.
 2
 3
 >>>
-\end{verbatim}
+\end{lstlisting}
 \subsection{List Slicing}
 List slicing is same as string slicing. See the following few examples.
-\begin{verbatim}
+\begin{lstlisting}
 >>> l
 [1, 2, 3]
 >>> l[0]
@@ -561,14 +584,14 @@ List slicing is same as string slicing. See the following few examples.
 >>> l[::-1]
 [3, 2, 1]
 >>> 
-\end{verbatim}
+\end{lstlisting}
 
 \section{Tuples}
 Tuples are same like lists. It is represent using round bracket $'('$ and $')'$.\\
 Tuples are immutable objects, those can not be modified.
 You can not update the value in the Tuple.
 You can not add or remove the elements in the Tuple.
-\begin{verbatim}
+\begin{lstlisting}
 >>> t = tuple()
 >>> t
 ()
@@ -576,7 +599,7 @@ You can not add or remove the elements in the Tuple.
 >>> t
 (10, 20, 30)
 >>>
-\end{verbatim}
+\end{lstlisting}
 \subsubsection{Tuple methods}
 You can check the properties of the Tuples using \textbf{dir} method. You will find only two properties.
 \begin{itemize}
@@ -585,21 +608,21 @@ You can check the properties of the Tuples using \textbf{dir} method. You will f
 \end{itemize}
 \subsubsection{Operations on Tuples}
 As we saw in the lists, you can add two Tuples. Ex:
-\begin{verbatim}
+\begin{lstlisting}
 >>> t
 (10, 20, 30)
 >>> t + t
 (10, 20, 30, 10, 20, 30)
 >>>
-\end{verbatim}
+\end{lstlisting}
 You can multiply the Tuple by number. It will create it's references, but not the actual list.
-\begin{verbatim}
+\begin{lstlisting}
 >>> t * 3
 (10, 20, 30, 10, 20, 30, 10, 20, 30)
-\end{verbatim}
+\end{lstlisting}
 \subsubsection{Iteration on Tuples}
 You can iterate on the list using for loop and while loop.
-\begin{verbatim}
+\begin{lstlisting}
 >>> for i in t:
 ...     print(i)
 ... 
@@ -615,10 +638,10 @@ You can iterate on the list using for loop and while loop.
 20
 30
 >>> 
-\end{verbatim}
+\end{lstlisting}
 \subsubsection{Tuple Slicing}
 You can perform slicing operations on the lists. See following few examples:
-\begin{verbatim}
+\begin{lstlisting}
 >>> t[0]
 10
 >>> t[:2]
@@ -632,21 +655,21 @@ You can perform slicing operations on the lists. See following few examples:
 >>> t[::2]
 (10, 30, 50, 70)
 >>> 
-\end{verbatim}
+\end{lstlisting}
 \section{Dictionaries}
 Dictionaries are based on the hash tables data structure in C. Dictionaries are defined using key and value. You can use curly braces ${}$ to define the dictionaries.
 
 Dictionaries are based on key and values. For each value there is one  key associated with it. 
-\begin{verbatim}
+\begin{lstlisting}
 >>> d = {}
 >>> d = {'country': 'India', 
 ...      'capital': 'Delhi', 
 ...      'states': 29}
 >>> d
 {'country': 'India', 'capital': 'Delhi', 'states': 29}
-\end{verbatim}
+\end{lstlisting}
 You can access the values using associated keys, and you can replace it using simple way.
-\begin{verbatim}
+\begin{lstlisting}
 >>> d['states']
 29
 >>> d['states'] = 30
@@ -655,9 +678,9 @@ You can access the values using associated keys, and you can replace it using si
 >>> d['Languages'] = ['Hindi', 'English', 'Tamil', 'Malyalum',
  'Marathi', 'Gujarati']
 
-\end{verbatim}
+\end{lstlisting}
 Keys in the dictionary are anything those can be string, integer, floating point values or any module object. 
-\begin{verbatim}
+\begin{lstlisting}
 >>> import os
 >>> d = {}
 >>> d[os] = 'os'
@@ -666,7 +689,7 @@ Keys in the dictionary are anything those can be string, integer, floating point
 >>> d[3.3] = 'three.three'
 >>> d
 {<module 'os' from '/usr/lib64/python3.6/os.py'>: 'os', 1: 'One', 'two': 2, 3.3: 'three.three'}
-\end{verbatim}
+\end{lstlisting}
 \subsection{Dictionary Methods}
 Dictionary have following methods:
 \begin{itemize}
@@ -683,7 +706,7 @@ Dictionary have following methods:
 \end{itemize}
 \subsection{Iteration on Dictionary}
 You can iterate on the dictionary using the for loop. By default it will iterate on the keys.
-\begin{verbatim}
+\begin{lstlisting}
 >>> d = {'one' : 1, 'two': 2, 'three': 3}
 >>> for i in d:
 ...     print(i)
@@ -692,9 +715,9 @@ one
 two
 three
 >>> 
-\end{verbatim}
+\end{lstlisting}
 In the dictionary you can iterate only values. For that you need to use \texttt{values()} method.
-\begin{verbatim}
+\begin{lstlisting}
 >>> for i in d.values():
 ...     print(i)
 ... 
@@ -702,9 +725,9 @@ In the dictionary you can iterate only values. For that you need to use \texttt{
 2
 3
 >>> 
-\end{verbatim}
+\end{lstlisting}
 Using the beauty of the for loop you can iterate on the key and value  at the same time. For that you can use \texttt{items()} method.
-\begin{verbatim}
+\begin{lstlisting}
 >>> for i, j in d.items():
 ...     print(i, j)
 ... 
@@ -712,24 +735,24 @@ one 1
 two 2
 three 3
 >>> 
-\end{verbatim}
+\end{lstlisting}
 
 \section{Functions}
 Function is a block of statements which will perform single action. Function will provide modular code, which will be more easy to read. You can reuse this code to perform some action which will save your time.
 
 In Python you can define the function using the \texttt{def} keyword. 
 After the def keyword you define the name of the function and later in the parenthesis you provide the arguments, after the arguments line ends with the \texttt{$:$} which indicate that from the next line body of the function will be begin.
-\begin{verbatim}
+\begin{lstlisting}
 >>> def add():
 ...     print("Addition : ", 10 + 20)
 ... 
 >>> add()
 Addition : 30
-\end{verbatim}
+\end{lstlisting}
 Above code will show the simple example of the function. This add function will print the addition of the two numbers. You can call any function using \texttt{function\textunderscore name$($args$)$} syntax, for Ex. \texttt{add()} in above code.
 
 In Python you can return the values from the function using \texttt{return} keyword. Below code shows some example of the function with with return values.
-\begin{verbatim}
+\begin{lstlisting}
 >>> def add():
 ...     return 10+20
 ... 
@@ -750,13 +773,13 @@ In Python you can return the values from the function using \texttt{return} keyw
 >>> print(u)
 None
 >>> 
-\end{verbatim}
+\end{lstlisting}
 In above example add function will return the value, which is addition of the two numbers. You can store that value in a variable for later use. 
 \paragraph{}
 Let's see other side, what if function do not return any value? In that case it will return \texttt{None} keyword. You can see the example in above code with function sub. Function will print the subtraction but it will not return anything. By default the value is \texttt{None}.
 \subsection{Functions with arguments}
 In functions arguments can be passed, In function you can pass $n$ no of arguments. To pass the arguments in the function you do not need to specify the data type, which we specify in C, C++ or Java. As mentioned earlier, Python is dynamic language. 
-\begin{verbatim}
+\begin{lstlisting}
 
 >>> def add(a, b):
 ...     return a + b
@@ -775,7 +798,7 @@ TypeError: add() missing 1 required positional argument: 'b'
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: add() missing 2 required positional arguments: 'a' and 'b'
-\end{verbatim}
+\end{lstlisting}
 In above program, two arguments are passed (a and b) to the function, and it is not defined with the data types. That means you can pass anything in the function call. You can pass integer or you can pass list or you can pass list.
 \paragraph{}
 If you are not passing expected arguments to the function then function will throw an error.
@@ -785,7 +808,7 @@ If you are not passing expected arguments to the function then function will thr
 
 \begin{itemize}
 \item **args used for the passing $n$ no of positional arguments tot the function.
-\begin{verbatim}
+\begin{lstlisting}
 >>> def add(*args):
 ...     return sum(args)
 ... 
@@ -793,24 +816,24 @@ If you are not passing expected arguments to the function then function will thr
 >>> add(10, 20, 30, 40, 50, 60)
 210
 >>> 
-\end{verbatim}
+\end{lstlisting}
 *args accept all the arguments in to the tuple.
 \item **kwargs used for the passing $n$ no of key and value based arguments to the function.
-\begin{verbatim}
+\begin{lstlisting}
 >>> def details(**kwargs):
 ...     print(kwargs)
 ... 
 >>> 
 >>> details(name='John',surname='Doe',age=10,height=5.5)
 {'name': 'John', 'surname': 'Doe', 'age': 10, 'height': 5.5}
-\end{verbatim}
+\end{lstlisting}
 **kwargs accepts all the arguments in to the dictionary.
 \end{itemize}
 
 \section{Decorators}
 
 \section{Exception Handling}
-\begin{verbatim}
+\begin{lstlisting}
 try:
     int("abc")
 except:
@@ -818,8 +841,8 @@ except:
 
 print("Hello")
 
-\end{verbatim}
-\begin{verbatim}
+\end{lstlisting}
+\begin{lstlisting}
 while True:
     val = input("Enter Value: ")
     try:
@@ -837,8 +860,8 @@ Enter Value: 123sad
 Invalid value inserted.
 Enter Value: 123
 Hello
-\end{verbatim}
-\begin{verbatim}
+\end{lstlisting}
+\begin{lstlisting}
 d = {1:'abc'}
 
 while True:
@@ -856,67 +879,67 @@ while True:
         print("Error occured")
 
 print("Hello")
-\end{verbatim}
+\end{lstlisting}
 \section{Class}
 Class is nothing but the group of the methods and variables. Classes are the basic building block of Object Oriented programming. 
 \paragraph{}
 In Python you can define the classes using $class$ keyword. Inside the class you can define the methods which are class methods. To define the methods are related to the class, first argument passed is $self$, it tells the compiler this method is class method. That means you can not access this method without creating it's object. 
 
-\begin{verbatim}
+\begin{lstlisting}
 >>> class math_op():
 ...     def get_add(self, a, b):
 ...             return a + b
 ... 
 >>> 
-\end{verbatim}
+\end{lstlisting}
 \subsection{Objects}
 Objects are the instance of the class. You can create the object of the class with giving the class reference. Once you created the object you can access class methods using $(.)$.
 
-\begin{verbatim}
+\begin{lstlisting}
 >>> m = math_op()
 >>> m.get_add(10, 20)
 30
 >>>
-\end{verbatim}
+\end{lstlisting}
 \subsection{Constructors}
 \subsubsection{Default Constructors}
 Constructors are the methods which are called when the objects are created. In Python you can defined the constructors, which will get called when object is get created.
 
-\begin{verbatim}
+\begin{lstlisting}
 class math_op():
     def __init__(self):
         print("Init is called")
 
 m = math_op()
-\end{verbatim}
+\end{lstlisting}
 In above program $m$ is the object which we created of the class $math \textunderscore op$. As soon as object got created that time $\textunderscore\textunderscore init\textunderscore\textunderscore()$ method got called. 
 If you run the above program, then it will give an output like:
-\begin{verbatim}
+\begin{lstlisting}
 Init is called
-\end{verbatim}
+\end{lstlisting}
 \subsubsection{Parametrize Constructors}
 In parametrize constructors you can pass the parameters to the constructor, it is need to pass when we create the object of the class.
 
-\begin{verbatim}
+\begin{lstlisting}
 class math_op():
     def __init__(self, a, b):
         print(a, b)
         print("Init is called")
 		
 m = math_op(10, 20)
-\end{verbatim}
+\end{lstlisting}
 If you run the above program it will show output like
-\begin{verbatim}
+\begin{lstlisting}
 10 20
 Init is called
-\end{verbatim}
+\end{lstlisting}
 \subsection{Magic Methods}
 In Python there are class method which are inbuilt, those methods can be overwrite, and those methods are known as Magic methods.
 \paragraph{}
 Magic methods are the methods which are used to play with the object. Recently we saw one example of Magic methods which is $\textunderscore\textunderscore init \textunderscore\textunderscore()$.
 
 Earlier we saw that we can add two objects like int, str, list etc... Now let's implement it. 
-\begin{verbatim}
+\begin{lstlisting}
 >>> class Human():
 ...     def __init__(self, name):
 ...             self.name = name
@@ -928,7 +951,7 @@ Earlier we saw that we can add two objects like int, str, list etc... Now let's 
 >>> h + h1
 'Jon Doe'
 >>> 
-\end{verbatim} 
+\end{lstlisting} 
 In above example we created one class and override the $\textunderscore\textunderscore add \textunderscore\textunderscore()$ magic method. This method will get called when we are going to add two objects. When we created the objects $h$ and $h1$ that time they are the objects of the same class. So we know that both of them have the same properties. Now let's add them. 
 
 \paragraph{}
@@ -953,7 +976,7 @@ Using the same way you can override the other methods too:
 \section{Modules}
 \subsection{sys module}
 sys module is used to check the which type of system it is, This module gives you the details about the system, consider you don't know which OS you have Mac OS, Linux OS and Windows, you can find out it using sys module.
-\begin{verbatim}
+\begin{lstlisting}
 >>> import sys
 >>> sys.platform
 'linux'
@@ -963,10 +986,10 @@ sys module is used to check the which type of system it is, This module gives yo
 'utf-8'
 >>> sys.getrecursionlimit()
 1000
-\end{verbatim}
+\end{lstlisting}
 \subsection{os module}
 os module is in built module in the python. Using this module you can perform OS related tasks, like listing directory, create directory, traverse directory.
-\begin{verbatim}
+\begin{lstlisting}
 >>> import os
 >>> # os.listdir() listing the files in the specific directory
 ... # os.path : This class provides methods to deal with path in Linux.
@@ -979,7 +1002,7 @@ os module is in built module in the python. Using this module you can perform OS
 ... # os.rmdir() : To remove single directory.
 ... # os.removedirs(): To remove nested directory recursively.
 
-\end{verbatim}
+\end{lstlisting}
 \subsection{re module}
 \subsection{sqlite module}
 \section{Python Built In methods}
