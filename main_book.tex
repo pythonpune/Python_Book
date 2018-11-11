@@ -516,6 +516,13 @@ You can multiply to list by number. It will create it's references but not the a
 >>> [1] * 3
 [1, 1, 1]
 \end{verbatim}
+Elements in the lists can be checked using \texttt{in} keywords. It is same as checking the substring in string.
+\begin{verbatim}
+>>> 1 in l
+True
+>>> 10 in l
+False
+\end{verbatim}
 \subsection{Iteration on Lists}
 You can iterate on the list with for loop and using while loop.
 \begin{verbatim}
@@ -748,29 +755,60 @@ In above example add function will return the value, which is addition of the tw
 \paragraph{}
 Let's see other side, what if function do not return any value? In that case it will return \texttt{None} keyword. You can see the example in above code with function sub. Function will print the subtraction but it will not return anything. By default the value is \texttt{None}.
 \subsection{Functions with arguments}
-
+In functions arguments can be passed, In function you can pass $n$ no of arguments. To pass the arguments in the function you do not need to specify the data type, which we specify in C, C++ or Java. As mentioned earlier, Python is dynamic language. 
 \begin{verbatim}
 
 >>> def add(a, b):
 ...     return a + b
 ... 
->>> add()
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-TypeError: add() missing 2 required positional arguments: 'a' and 'b'
 >>> add(109, 23)
 132
->>> add(109)
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-TypeError: add() missing 1 required positional argument: 'b'
 >>> add("abc", "def")
 'abcdef'
 >>> add([1], [2])
 [1, 2]
+>>> add(109)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: add() missing 1 required positional argument: 'b'
+>>> add()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: add() missing 2 required positional arguments: 'a' and 'b'
+\end{verbatim}
+In above program, two arguments are passed (a and b) to the function, and it is not defined with the data types. That means you can pass anything in the function call. You can pass integer or you can pass list or you can pass list.
+\paragraph{}
+If you are not passing expected arguments to the function then function will throw an error.
+
+\subsection{*args and **kwargs in Function}
+*args and **kwargs are play major role in function arguments. Consider if you want to pass $n$ no of arguments in to the function, some languages have restrictions on that, you can pass the arguments which are defined in the function. But Python gives you more scope to pass the $n$ no of arguments to the function. 
+
+\begin{itemize}
+\item **args used for the passing $n$ no of positional arguments tot the function.
+\begin{verbatim}
+>>> def add(*args):
+...     return sum(args)
+... 
+>>> 
+>>> add(10, 20, 30, 40, 50, 60)
+210
 >>> 
 \end{verbatim}
+*args accept all the arguments in to the tuple.
+\item **kwargs used for the passing $n$ no of key and value based arguments to the function.
+\begin{verbatim}
+>>> def details(**kwargs):
+...     print(kwargs)
+... 
+>>> 
+>>> details(name='John',surname='Doe',age=10,height=5.5)
+{'name': 'John', 'surname': 'Doe', 'age': 10, 'height': 5.5}
+\end{verbatim}
+**kwargs accepts all the arguments in to the dictionary.
+\end{itemize}
+
 \section{Decorators}
+
 \section{Exception Handling}
 \begin{verbatim}
 try:
@@ -820,10 +858,128 @@ while True:
 print("Hello")
 \end{verbatim}
 \section{Class}
+Class is nothing but the group of the methods and variables. Classes are the basic building block of Object Oriented programming. 
+\paragraph{}
+In Python you can define the classes using $class$ keyword. Inside the class you can define the methods which are class methods. To define the methods are related to the class, first argument passed is $self$, it tells the compiler this method is class method. That means you can not access this method without creating it's object. 
+
+\begin{verbatim}
+>>> class math_op():
+...     def get_add(self, a, b):
+...             return a + b
+... 
+>>> 
+\end{verbatim}
+\subsection{Objects}
+Objects are the instance of the class. You can create the object of the class with giving the class reference. Once you created the object you can access class methods using $(.)$.
+
+\begin{verbatim}
+>>> m = math_op()
+>>> m.get_add(10, 20)
+30
+>>>
+\end{verbatim}
+\subsection{Constructors}
+\subsubsection{Default Constructors}
+Constructors are the methods which are called when the objects are created. In Python you can defined the constructors, which will get called when object is get created.
+
+\begin{verbatim}
+class math_op():
+    def __init__(self):
+        print("Init is called")
+
+m = math_op()
+\end{verbatim}
+In above program $m$ is the object which we created of the class $math \textunderscore op$. As soon as object got created that time $\textunderscore\textunderscore init\textunderscore\textunderscore()$ method got called. 
+If you run the above program, then it will give an output like:
+\begin{verbatim}
+Init is called
+\end{verbatim}
+\subsubsection{Parametrize Constructors}
+In parametrize constructors you can pass the parameters to the constructor, it is need to pass when we create the object of the class.
+
+\begin{verbatim}
+class math_op():
+    def __init__(self, a, b):
+        print(a, b)
+        print("Init is called")
+		
+m = math_op(10, 20)
+\end{verbatim}
+If you run the above program it will show output like
+\begin{verbatim}
+10 20
+Init is called
+\end{verbatim}
+\subsection{Magic Methods}
+In Python there are class method which are inbuilt, those methods can be overwrite, and those methods are known as Magic methods.
+\paragraph{}
+Magic methods are the methods which are used to play with the object. Recently we saw one example of Magic methods which is $\textunderscore\textunderscore init \textunderscore\textunderscore()$.
+
+Earlier we saw that we can add two objects like int, str, list etc... Now let's implement it. 
+\begin{verbatim}
+>>> class Human():
+...     def __init__(self, name):
+...             self.name = name
+...     def __add__(self, obj):
+...             return self.name + " " + obj.name
+... 
+>>> h = Human("Jon")
+>>> h1 = Human("Doe")
+>>> h + h1
+'Jon Doe'
+>>> 
+\end{verbatim} 
+In above example we created one class and override the $\textunderscore\textunderscore add \textunderscore\textunderscore()$ magic method. This method will get called when we are going to add two objects. When we created the objects $h$ and $h1$ that time they are the objects of the same class. So we know that both of them have the same properties. Now let's add them. 
+
+\paragraph{}
+When we are adding them first object's $add$ method get called and by default constructor will pass $h1$ object as $obj$ in the add method of the Human class.
+
+Using the same way you can override the other methods too:
+\begin{itemize}
+\item  $\textunderscore\textunderscore add \textunderscore\textunderscore()$ Add two objects
+\item  $\textunderscore\textunderscore sub \textunderscore\textunderscore()$ Subtract two objects
+\item  $\textunderscore\textunderscore mul \textunderscore\textunderscore()$ Multiply two objects
+\item  $\textunderscore\textunderscore div \textunderscore\textunderscore()$ Divide two objects
+\item  $\textunderscore\textunderscore lt \textunderscore\textunderscore()$ check less than condition $ a < b$
+\item  $\textunderscore\textunderscore gt \textunderscore\textunderscore()$ Check grater than condition $ a > b$
+\item  $\textunderscore\textunderscore le \textunderscore\textunderscore()$ Check less than and equal to condition $ a <= b$
+\item  $\textunderscore\textunderscore ge \textunderscore\textunderscore()$ Check grater than and equal to condition $a >= b$
+\item  $\textunderscore\textunderscore repr \textunderscore\textunderscore()$ Object representation on the console.
+\item  $\textunderscore\textunderscore str \textunderscore\textunderscore()$ Object representation when we are using $print()$
+\item  $\textunderscore\textunderscore len \textunderscore\textunderscore()$ To Count the length of the object. (Uses with $len()$)
+\item  $\textunderscore\textunderscore dir \textunderscore\textunderscore()$ Return the methods associated with the class. (Uses with $dir()$)
+\end{itemize}
 \section{File Operations}
 \section{Modules}
 \subsection{sys module}
+sys module is used to check the which type of system it is, This module gives you the details about the system, consider you don't know which OS you have Mac OS, Linux OS and Windows, you can find out it using sys module.
+\begin{verbatim}
+>>> import sys
+>>> sys.platform
+'linux'
+>>> sys.version
+'3.6.6 (default, Jul 19 2018, 14:25:17) \n[GCC 8.1.1 20180712 (Red Hat 8.1.1-5)]'
+>>> sys.getdefaultencoding()
+'utf-8'
+>>> sys.getrecursionlimit()
+1000
+\end{verbatim}
 \subsection{os module}
+os module is in built module in the python. Using this module you can perform OS related tasks, like listing directory, create directory, traverse directory.
+\begin{verbatim}
+>>> import os
+>>> # os.listdir() listing the files in the specific directory
+... # os.path : This class provides methods to deal with path in Linux.
+... # os.walk : This will iterate on the directory and will return directory, subdir, files.
+... # os.getcwd() : Will show current working directory
+... # os.system() : which will execute the shell commands
+... # os.getuid() : It will return the UID of the current user.
+... # os.mkdir() : To create the directory
+... # os.makedirs(): To create nested directory recursively.
+... # os.rmdir() : To remove single directory.
+... # os.removedirs(): To remove nested directory recursively.
+
+\end{verbatim}
 \subsection{re module}
 \subsection{sqlite module}
 \section{Python Built In methods}
