@@ -833,6 +833,11 @@ If you are not passing expected arguments to the function then function will thr
 \section{Decorators}
 
 \section{Exception Handling}
+In Python there are multiple built in exceptions are present. Exceptions are designed to handle the error in running program. Consider if you are converting the strings to the integer, which is against the Python programming language rule. To handle this situation exceptions are used. If exceptions are not used then program will crash.
+\paragraph{}
+In Python exceptions are defined using \texttt{try},\texttt{except}, \texttt{finally} and \texttt{else} keywords. In the \texttt{try} block you can write your code, if you know that this will cause an error then you can write that in to the \texttt{try} block. To handle the error you can write your error message in to the \texttt{except} block.
+\paragraph{}
+Once error occur in \texttt{try} block then control passes to the \texttt{except} block and continues the program execution.
 \begin{lstlisting}
 try:
     int("abc")
@@ -840,8 +845,9 @@ except:
     print("Error occured")
 
 print("Hello")
-
 \end{lstlisting}
+
+Let's consider the another example, If you want use should insert proper integer value then you should write it using following way. This program will run until user will not provide the integer value.
 \begin{lstlisting}
 while True:
     val = input("Enter Value: ")
@@ -861,6 +867,8 @@ Invalid value inserted.
 Enter Value: 123
 Hello
 \end{lstlisting}
+
+In Python multiple exceptions are present, those exception are used with specific conditions, You will use \texttt{ValueError} exception when convert the string value to integer.
 \begin{lstlisting}
 d = {1:'abc'}
 
@@ -874,6 +882,21 @@ while True:
         print("Invalid value inserted.")
     except KeyError:
         print("Key is not available in dict")
+
+print("Hello")
+\end{lstlisting}
+In above program if you provide another value expect digits then you will get value error. If you provide the any digit except 1 then it will throw an key error. 
+
+Exception is generic class, if you don't know which error will occur then you will write Exception class and print it.
+\begin{lstlisting}
+d = {1:'abc'}
+
+while True:
+    val = input("Enter Value: ")
+    try:
+        int(val)
+        d[int(val)]
+        break
     except Exception as e:
         print(e)
         print("Error occured")
