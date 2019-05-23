@@ -25,13 +25,13 @@
   columns=flexible,
   basicstyle={\small\ttfamily},
   numbers=none,
-  numberstyle=\tiny\color{gray},
+  numberstyle=\tiny\color{red},
   keywordstyle=\color{blue},
   commentstyle=\color{dkgreen},
-  stringstyle=\color{mauve},
+  stringstyle=\color{black},
   breaklines=true,
   breakatwhitespace=true,
-  tabsize=3
+  tabsize=4
 }
 
 \usepackage{hyperref}
@@ -42,7 +42,8 @@
     linkcolor=blue,
     urlcolor=black}
 
-
+\usepackage{marginnote}
+\usepackage[bottom]{footmisc}
 \begin{document}
 \tableofcontents
 \part{Introduction to Python3}
@@ -367,12 +368,12 @@ Break statement is used to exit the loop. It's uses is same as continue statemen
 \end{lstlisting}
 
 \section{Strings}
-In Python strings are defined using either ` quotes or `` quotes, but all of them treated as equally. When write a string it is a object of class \texttt{str}. 
+In Python strings are defined using either ` quotes or `` quotes, but all of them treated as equally. When write a string it is a object of class \texttt{str}.
 \begin{lstlisting}
 >>> `hello' == "hello"
 True
->>> type('hello')
-<class 'str'>
+>>> type(`hello')
+<class `str'>
 \end{lstlisting}
 If you specify \textbf{hello} without quotes then python interpreter will treat it as variable. If interpreter will find any variable then it will work otherwise it will throw an error.
 \begin{lstlisting}
@@ -515,16 +516,23 @@ If you want to add the element in to the empty list then you can use \textsc{app
 \begin{itemize}
 \item append(): To append element to the list.
 \item clear(): To clear the list.
-\item copy(): To copy the list in to the another variable.
+\item copy(): To copy the list in to the another variable. \footnote{ If we can directly copy one variable using assignment operator then why we need `copy' method?\\ Basically in python when assignment (=) operator, that time new variable just simply point to the list location. 
+\\
+So if you change the list using old variable then new variable will reflect the change. But if you create new variable using copy(), then your new variable did not get affected.\\
+
+}
+
 \item count(): Count the element occurrences in the list.
-\item extend(): To extend the existing list with another.
-\item index(): Index of the element.
-\item insert(): To insert the element at specific location.
-\item pop(): To pop the element from the list.
+\item extend(): To extend the existing list with another list. You can pass any object (string, list, dict, set) it will extend it to the list. 
+\item index(): It will return index of the element.
+\item insert(): To insert the element at specific location. This method accepts two parameters, 1st one is index and 2nd is value.
+\item pop(): To pop the element from the list. By default it will remove the elements from the end of the list. If you want to remove the elements from any location then you can pass index at it.
 \item remove(): To remove the element from the list.
-\item reverse(): To reverse the string.
-\item sort(): To sort the elements in the string.
+\item reverse(): To reverse the list.
+\item sort(): To sort the elements in the list.
 \end{itemize}
+\clearpage
+
 
 \subsection{Operation On Lists}
 On lists you can perform different operations. You can add two lists. Ex:
@@ -831,6 +839,55 @@ If you are not passing expected arguments to the function then function will thr
 \end{itemize}
 
 \section{Decorators}
+Decorators are the functions, which take function as input argument. You can decorate any functions with decorators and change the functionality of the function.
+\paragraph{}
+To understand the Decorators in deep, let's revisit functions once more. Now you know that how to define function and how to call it. But what if you didn't call it and just wrote the name?
+\begin{lstlisting}
+>>> def add(a, b):
+...    return a + b
+...
+>>> add
+<function add at 0x7f566467d0d0>
+\end{lstlisting}
+
+Yes.. it will show you address of that function. It is telling you that function is present at some location on memory. If you will get address of that function then you can play around it.
+\paragraph{}
+ Remember we didn't called the function but we just print it's memory location. If that is the case then I can pass this function as an argument to another function.
+
+\begin{lstlisting}
+>>> def wrapper(func):
+...     print("Before func")
+...     print(func(10, 20))
+...     print("After func")
+... 
+>>> wrapper(add)
+Before func
+30
+After func
+>>> 
+\end{lstlisting}
+In above example, I wrote another function name as wrapper and passed one argument to it, and called it with two parameters. When I called wrapper function that time I passed add function reference to it.
+\paragraph{}
+So basically this happened, I passed add to wrapper and when wrapper get called it printed "Before func" then it will call add function which takes two arguments and return the result, After that it will print "After func". So this passed add function is get called within the wrapper function. 
+\paragraph{}
+Python allows us to decorate the functions using decorator, so we can write the code like this
+\begin{lstlisting}
+>>> def wrapper(func):
+...     print("Before func")
+...     func()
+...     print("After func")
+... 
+>>> @wrapper
+... def hell_world():
+...     print("Hello World")
+... 
+Before func
+Hello World
+After func
+>>> 
+\end{lstlisting}
+
+When you decorate any function, by default python interpreter call wrapper function add pass "hello\textunderscore world" function reference in to it.
 
 \section{Exception Handling}
 In Python there are multiple built in exceptions are present. Exceptions are designed to handle the error in running program. Consider if you are converting the strings to the integer, which is against the Python programming language rule. To handle this situation exceptions are used. If exceptions are not used then program will crash.
