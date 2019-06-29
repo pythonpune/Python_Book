@@ -1,0 +1,13 @@
+dist: xenial
+sudo: required
+
+services:
+  - docker
+
+script:
+  - make indent
+  - make checks
+  - make build
+
+after_failure:
+  - git diff
