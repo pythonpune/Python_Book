@@ -28,7 +28,9 @@ cleanall:
 	@echo "Successfully clean all files created by LaTeX."
 indent:
 	@echo "make indentation for tex file"
-	@exec docker run --rm -i -v ${PWD}:/data ${IMAGE} latexindent --overwrite ${BOOK}
+	@rm -rf *.bak*
+	@exec docker run --rm -i -v ${PWD}:/data ${IMAGE} latexindent -s --overwrite ${BOOK}
+	@exec cmp ${BOOK} *.bak*
 checks:
 	@echo "--------------------- chktex --------------------"
 	@exec docker run --rm -i -v ${PWD}:/data ${IMAGE} chktex ${BOOK}
