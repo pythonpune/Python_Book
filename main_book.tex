@@ -1123,6 +1123,28 @@ os module is in built module in the python. Using this module you can perform OS
 \subsection{re module}
 \subsection{sqlite module}
 \section{Python Built In methods}
+Python as language it has some of it's features. It imports some of the functions and variables by default, So you don't need to call modules to execute this function. Well this is perfect match for 'Beautiful is better than Ugly' from Zen of Python.
+\paragraph{}
+Python has some of the 'builtins' methods and classes which are imported by default. Open interpreter and type dir\(\textunderscore \textunderscore biltins \textunderscore \textunderscore\).
+\begin{lstlisting}
+>>> dir(__builtins__)
+['ArithmeticError', 'AssertionError', 'AttributeError', 'BaseException', 'BlockingIOError', 'BrokenPipeError', 'BufferError', 'BytesWarning', 'ChildProcessError', 'ConnectionAbortedError', 'ConnectionError', 'ConnectionRefusedError', 'ConnectionResetError', 'DeprecationWarning', 'EOFError', 'Ellipsis', 'EnvironmentError', 'Exception', 'False', 'FileExistsError', 'FileNotFoundError', 'FloatingPointError', 'FutureWarning', 'GeneratorExit', 'IOError', 'ImportError', 'ImportWarning', 'IndentationError', 'IndexError', 'InterruptedError', 'IsADirectoryError', 'KeyError', 'KeyboardInterrupt', 'LookupError', 'MemoryError', 'ModuleNotFoundError', 'NameError', 'None', 'NotADirectoryError', 'NotImplemented', 'NotImplementedError', 'OSError', 'OverflowError', 'PendingDeprecationWarning', 'PermissionError', 'ProcessLookupError', 'RecursionError', 'ReferenceError', 'ResourceWarning', 'RuntimeError', 'RuntimeWarning', 'StopAsyncIteration', 'StopIteration', 'SyntaxError', 'SyntaxWarning', 'SystemError', 'SystemExit', 'TabError', 'TimeoutError', 'True', 'TypeError', 'UnboundLocalError', 'UnicodeDecodeError', 'UnicodeEncodeError', 'UnicodeError', 'UnicodeTranslateError', 'UnicodeWarning', 'UserWarning', 'ValueError', 'Warning', 'ZeroDivisionError', '__build_class__', '__debug__', '__doc__', '__import__', '__loader__', '__name__', '__package__', '__spec__', 'abs', 'all', 'any', 'ascii', 'bin', 'bool', 'breakpoint', 'bytearray', 'bytes', 'callable', 'chr', 'classmethod', 'compile', 'complex', 'copyright', 'credits', 'delattr', 'dict', 'dir', 'divmod', 'enumerate', 'eval', 'exec', 'exit', 'filter', 'float', 'format', 'frozenset', 'getattr', 'globals', 'hasattr', 'hash', 'help', 'hex', 'id', 'input', 'int', 'isinstance', 'issubclass', 'iter', 'len', 'license', 'list', 'locals', 'map', 'max', 'memoryview', 'min', 'next', 'object', 'oct', 'open', 'ord', 'pow', 'print', 'property', 'quit', 'range', 'repr', 'reversed', 'round', 'set', 'setattr', 'slice', 'sorted', 'staticmethod', 'str', 'sum', 'super', 'tuple', 'type', 'vars', 'zip']
+\end{lstlisting}
+You could see the list of the 'builtin' Exception and methods. If you want to execute those methods and Execption you can directly call them in the interpreter.
+Like we used 'print' before and list, dict, range etc.
+\paragraph{}
+All those are coming form the builtin module. And by default this module is assigned to the \textunderscore \textunderscore builtin \textunderscore \textunderscore.
+Let's check that out.
+\begin{lstlisting}
+>>> import builtins
+>>> id(builtins)
+139815372774672
+>>> id(__builtins__)
+139815372774672
+\end{lstlisting}
+Yes.. id of the both are same. You can try to import from 'builtins' and run it will return the same result.
+\paragraph{}
+All the list items are starting with Capital letters are the Exceptions. And rest are the methods.
 \part{Testing with Python}
 \part{Django}
 \end{document}
