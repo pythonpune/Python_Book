@@ -852,7 +852,7 @@ To understand the Decorators in deep, let's revisit functions once more. Now you
 
 Yes.. it will show you address of that function. It is telling you that function is present at some location on memory. If you will get address of that function then you can play around it.
 \paragraph{}
- Remember we didn't called the function but we just print it's memory location. If that is the case then I can pass this function as an argument to another function.
+Remember we did not called the function yet, we just print it's memory location. If that is the case then we can pass this function as an argument to another function (like call by reference in C).
 
 \begin{lstlisting}
 >>> def wrapper(func):
@@ -866,9 +866,10 @@ Before func
 After func
 >>> 
 \end{lstlisting}
-In above example, I wrote another function name as wrapper and passed one argument to it, and called it with two parameters. When I called wrapper function that time I passed add function reference to it.
+In above example, I wrote another function name as 'wrapper' and passed one argument 'add' in it, and inside the wrapper function I called function 'func' with two parameters.
+After hitting enter, we could see that function add print addition 30 in between 'Before func' and 'After func'.
 \paragraph{}
-So basically this happened, I passed add to wrapper and when wrapper get called it printed "Before func" then it will call add function which takes two arguments and return the result, After that it will print "After func". So this passed add function is get called within the wrapper function. 
+So basically this happened, I passed 'add' to 'wrapper' and when wrapper get called it printed "Before func" then it will call 'add' function which takes two arguments and return and print the result, After that it will print "After func". So this passed add function is get called within the 'wrapper' function. 
 \paragraph{}
 Python allows us to decorate the functions using decorator, so we can write the code like this
 \begin{lstlisting}
@@ -878,7 +879,7 @@ Python allows us to decorate the functions using decorator, so we can write the 
 ...     print("After func")
 ... 
 >>> @wrapper
-... def hell_world():
+... def hello_world():
 ...     print("Hello World")
 ... 
 Before func
@@ -888,6 +889,23 @@ After func
 \end{lstlisting}
 
 When you decorate any function, by default python interpreter call wrapper function add pass "hello\textunderscore world" function reference in to it.
+\paragraph{}
+Basically we can write above decorator function in simple form
+\begin{lstlisting}
+>>> def wrapper(func):
+...     print("Before func")
+...     func()
+...     print("After func")
+...
+>>> @wrapper
+... def hello_world():
+...     print("Hello World")
+...
+Before func
+Hello World
+After func
+\end{lstlisting}
+Okay.. now I expect you got some understanding of the decorators. You might have notice that it get called automatically by the interpreter.
 
 \section{Exception Handling}
 In Python there are multiple built in exceptions are present. Exceptions are designed to handle the error in running program. Consider if you are converting the strings to the integer, which is against the Python programming language rule. To handle this situation exceptions are used. If exceptions are not used then program will crash.
@@ -983,7 +1001,7 @@ Objects are the instance of the class. You can create the object of the class wi
 \end{lstlisting}
 \subsection{Constructors}
 \subsubsection{Default Constructors}
-Constructors are the methods which are called when the objects are created. In Python you can defined the constructors, which will get called when object is get created.
+Constructors are the methods which are called when the objects are created. In Python you can defined the constructors, which get called when object got created.
 
 \begin{lstlisting}
 class math_op():
@@ -1052,8 +1070,28 @@ Using the same way you can override the other methods too:
 \item  $\textunderscore\textunderscore len \textunderscore\textunderscore()$ To Count the length of the object. (Uses with $len()$)
 \item  $\textunderscore\textunderscore dir \textunderscore\textunderscore()$ Return the methods associated with the class. (Uses with $dir()$)
 \end{itemize}
+\section{Inheritance}
 \section{File Operations}
 \section{Modules}
+Implementing modules in Python is very easy. Modules are nothing but the file with the class. If you want to use those classes then you can directly import those classes in your code.
+Let's create on file wich has 2 classes. Class A has get_a and set_a methods and Class B has get_b and set_b methods.
+
+\begin{lstlisting}
+  class A:
+      a = 10
+      def get_a(self):
+          return self.a
+
+      def set_a(self, a):
+          self.a = a
+          
+  class B:
+      b = 20
+      def get_b(self):
+          return self.b
+
+\end{lstlisting}
+
 \subsection{sys module}
 sys module is used to check the which type of system it is, This module gives you the details about the system, consider you don't know which OS you have Mac OS, Linux OS and Windows, you can find out it using sys module.
 \begin{lstlisting}
@@ -1081,11 +1119,32 @@ os module is in built module in the python. Using this module you can perform OS
 ... # os.makedirs(): To create nested directory recursively.
 ... # os.rmdir() : To remove single directory.
 ... # os.removedirs(): To remove nested directory recursively.
-
 \end{lstlisting}
 \subsection{re module}
 \subsection{sqlite module}
 \section{Python Built In methods}
+Python as language it has some of it's features. It imports some of the functions and variables by default, So you don't need to call modules to execute this function. Well this is perfect match for 'Beautiful is better than Ugly' from Zen of Python.
+\paragraph{}
+Python has some of the 'builtins' methods and classes which are imported by default. Open interpreter and type dir\(\textunderscore \textunderscore biltins \textunderscore \textunderscore\).
+\begin{lstlisting}
+>>> dir(__builtins__)
+['ArithmeticError', 'AssertionError', 'AttributeError', 'BaseException', 'BlockingIOError', 'BrokenPipeError', 'BufferError', 'BytesWarning', 'ChildProcessError', 'ConnectionAbortedError', 'ConnectionError', 'ConnectionRefusedError', 'ConnectionResetError', 'DeprecationWarning', 'EOFError', 'Ellipsis', 'EnvironmentError', 'Exception', 'False', 'FileExistsError', 'FileNotFoundError', 'FloatingPointError', 'FutureWarning', 'GeneratorExit', 'IOError', 'ImportError', 'ImportWarning', 'IndentationError', 'IndexError', 'InterruptedError', 'IsADirectoryError', 'KeyError', 'KeyboardInterrupt', 'LookupError', 'MemoryError', 'ModuleNotFoundError', 'NameError', 'None', 'NotADirectoryError', 'NotImplemented', 'NotImplementedError', 'OSError', 'OverflowError', 'PendingDeprecationWarning', 'PermissionError', 'ProcessLookupError', 'RecursionError', 'ReferenceError', 'ResourceWarning', 'RuntimeError', 'RuntimeWarning', 'StopAsyncIteration', 'StopIteration', 'SyntaxError', 'SyntaxWarning', 'SystemError', 'SystemExit', 'TabError', 'TimeoutError', 'True', 'TypeError', 'UnboundLocalError', 'UnicodeDecodeError', 'UnicodeEncodeError', 'UnicodeError', 'UnicodeTranslateError', 'UnicodeWarning', 'UserWarning', 'ValueError', 'Warning', 'ZeroDivisionError', '__build_class__', '__debug__', '__doc__', '__import__', '__loader__', '__name__', '__package__', '__spec__', 'abs', 'all', 'any', 'ascii', 'bin', 'bool', 'breakpoint', 'bytearray', 'bytes', 'callable', 'chr', 'classmethod', 'compile', 'complex', 'copyright', 'credits', 'delattr', 'dict', 'dir', 'divmod', 'enumerate', 'eval', 'exec', 'exit', 'filter', 'float', 'format', 'frozenset', 'getattr', 'globals', 'hasattr', 'hash', 'help', 'hex', 'id', 'input', 'int', 'isinstance', 'issubclass', 'iter', 'len', 'license', 'list', 'locals', 'map', 'max', 'memoryview', 'min', 'next', 'object', 'oct', 'open', 'ord', 'pow', 'print', 'property', 'quit', 'range', 'repr', 'reversed', 'round', 'set', 'setattr', 'slice', 'sorted', 'staticmethod', 'str', 'sum', 'super', 'tuple', 'type', 'vars', 'zip']
+\end{lstlisting}
+You could see the list of the 'builtin' Exception and methods. If you want to execute those methods and Execption you can directly call them in the interpreter.
+Like we used 'print' before and list, dict, range etc.
+\paragraph{}
+All those are coming form the builtin module. And by default this module is assigned to the \textunderscore \textunderscore builtin \textunderscore \textunderscore.
+Let's check that out.
+\begin{lstlisting}
+>>> import builtins
+>>> id(builtins)
+139815372774672
+>>> id(__builtins__)
+139815372774672
+\end{lstlisting}
+Yes.. id of the both are same. You can try to import from 'builtins' and run it will return the same result.
+\paragraph{}
+All the list items are starting with Capital letters are the Exceptions. And rest are the methods.
 \part{Testing with Python}
 \part{Django}
 \end{document}
