@@ -13,13 +13,17 @@ jobs:
       - name: Check Indentation
         run: make indent
 
-      - name: Syntex Checks
+      - name: Syntex Suggetions
         run: make checks
 
-      - name: build PDFLaTeX
+      - name: Build PDFLaTeX
         run: make build
 
       - name: Analysis (git diff)
         if: failure()
         run: git diff
 
+      - uses: actions/upload-artifact@v1
+        with:
+            name: artifacts
+            path: .
