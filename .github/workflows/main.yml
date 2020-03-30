@@ -13,7 +13,7 @@ jobs:
       - name: Check Indentation
         run: make indent
 
-      - name: Syntex Suggetions
+      - name: Syntex Suggestions
         run: make checks
 
       - name: Build PDFLaTeX
