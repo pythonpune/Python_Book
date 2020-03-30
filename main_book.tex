@@ -102,58 +102,58 @@ True
 True
 >>> 10 != 10
 False
-\end{lstlisting} 
+\end{lstlisting}
 
 \subsection{Bitwise Operators}
 Bitwise operators are used to perform bit operations on the numbers. Those numbers are treated as string of bits written in twos complement binary.
 \begin{itemize}
-\item 0 is written as "0"
-\item 1 is written as "1"
-\item 2 is written as "10"
-\item 3 is "11"
-\item .
-\item .
-\item 1029 is  ``10000000101" == 2**10 + 2**2 + 2**0 == 1024 + 4 + 1
+	\item 0 is written as "0"
+	\item 1 is written as "1"
+	\item 2 is written as "10"
+	\item 3 is "11"
+	\item .
+	\item .
+	\item 1029 is  ``10000000101" == 2**10 + 2**2 + 2**0 == 1024 + 4 + 1
 \end{itemize}
 
 \subsubsection{Operators}
 \begin{itemize}
-\item $x \ll y$ : $x$ operator is shifted to left by $y$ bits and it return result of $x$ with shifted $y$ bits. It is same as $x * 2 ** y$
-\begin{lstlisting}
+	\item $x \ll y$ : $x$ operator is shifted to left by $y$ bits and it return result of $x$ with shifted $y$ bits. It is same as $x * 2 ** y$
+	      \begin{lstlisting}
 >>> 3<<2
 12
 >>> 3*2**2
 12
 \end{lstlisting}
-\item $x \gg y$ : $x$ operator is shifted to right by $y$ bits and it return result of $x$ with shifted $y$ bits. It is same as $x // 2 ** y$.
-\begin{lstlisting}
+	\item $x \gg y$ : $x$ operator is shifted to right by $y$ bits and it return result of $x$ with shifted $y$ bits. It is same as $x // 2 ** y$.
+	      \begin{lstlisting}
 >>> 8>>2
 2
 >>> 8//2**2
 2
 \end{lstlisting}
-\item $x \& y $: Bitwise AND, each bit of output is 1 if corresponding bit of $x$ AND $y$ is 1, otherwise it is 0
-\begin{lstlisting}
+	\item $x \& y $: Bitwise AND, each bit of output is 1 if corresponding bit of $x$ AND $y$ is 1, otherwise it is 0
+	      \begin{lstlisting}
 >>> 8 & 8
 8
 >>> 8 & 2
 0
 \end{lstlisting}
-\item $x | y$ : Bitwise OR, each bit of output is 1 if corresponding bit of $x$ AND $y$ is 1, otherwise it is 0
-\begin{lstlisting}
+	\item $x | y$ : Bitwise OR, each bit of output is 1 if corresponding bit of $x$ AND $y$ is 1, otherwise it is 0
+	      \begin{lstlisting}
 >>> 2 | 2
 2
 >>> 2 | 4
 6
 >>> 
 \end{lstlisting}
-\item $\sim x $: Complement, It will gives complement of $x$, the number you get by switching each 1 for a 0 and each 0 for a 1. This is the same as -x - 1. 
-\begin{lstlisting}
+	\item $\sim x $: Complement, It will gives complement of $x$, the number you get by switching each 1 for a 0 and each 0 for a 1. This is the same as -x - 1.
+	      \begin{lstlisting}
 >>> ~2
 -3
 \end{lstlisting}
-\item $x \wedge y$ :  Does a ``bitwise exclusive or". Each bit of the output is the same as the corresponding bit in $x$ if that bit in $y$ is 0, and it's the complement of the bit in $x$ if that bit in $y$ is 1.
-\begin{lstlisting}
+	\item $x \wedge y$ :  Does a ``bitwise exclusive or". Each bit of the output is the same as the corresponding bit in $x$ if that bit in $y$ is 0, and it's the complement of the bit in $x$ if that bit in $y$ is 1.
+	      \begin{lstlisting}
 >>> 1^1
 0
 >>> 1^2
@@ -167,20 +167,20 @@ In any programming language keywords are present, those are nothing but reserve 
 
 List of keywords present in the Python\\
 \begin{center}
-\begin{tabular}{llll}
-class & False & None & True\\
-and & as & assert & break \\
-continue & def & del & elif \\
-else & expect & finally & for \\
-from & global & if & import \\
-in & is & lambda & not \\
-or & pass & raise & return \\
-try & while & with & yield
-\end{tabular}
+	\begin{tabular}{llll}
+		class    & False  & None    & True   \\
+		and      & as     & assert  & break  \\
+		continue & def    & del     & elif   \\
+		else     & expect & finally & for    \\
+		from     & global & if      & import \\
+		in       & is     & lambda  & not    \\
+		or       & pass   & raise   & return \\
+		try      & while  & with    & yield
+	\end{tabular}
 \end{center}
 
 \section{Variables and assignment}
-Python is dynamically typed language, it means it will decide what to do with your input at the run time. 
+Python is dynamically typed language, it means it will decide what to do with your input at the run time.
 
 Variable declaration and definition in python is something different. If you want to define integer in other languages, for that you follow this syntax \texttt{<data\textunderscore type> <variable\textunderscore name> = <value>}
 
@@ -215,7 +215,7 @@ NOTE: Mixture of both space and tabs will throw an exception.
 \subsection{If statement}
 If statement is conditional statement. It is used to check the condition between two variables.
 
-Any non zero value is considered as a True value. In python it's syntax is little bit different. 
+Any non zero value is considered as a True value. In python it's syntax is little bit different.
 
 True keyword is used to represent boolean value. In first statement condition is true so it will print the if block. In second statement $ 10 > 10 $ condition is false, it will not print ``True statement".
 \begin{lstlisting}
@@ -230,7 +230,7 @@ True statement
 \end{lstlisting}
 
 \subsection{if..else statement}
-Like I mentioned in the above statement if is the conditional statement, in if statement if the condition is true, then it will execute the if block or it will skip it. 
+Like I mentioned in the above statement if is the conditional statement, in if statement if the condition is true, then it will execute the if block or it will skip it.
 
 Here if condition is false then, else block got executed.
 \begin{lstlisting}
@@ -245,7 +245,7 @@ Else block is printed
 
 
 \subsection{if..elif statement}
-In the python switch statement is not present. If you want to check any choice which is matches to the multiple statement then you need to use elif statement. 
+In the python switch statement is not present. If you want to check any choice which is matches to the multiple statement then you need to use elif statement.
 
 elif statement is check the condition, if the condition is true then it will execute the block or else block.
 
@@ -273,8 +273,8 @@ In above statement you can see that once the condition is true it skip the all t
 \section{Loops}
 In Python there are two main loops:
 \begin{enumerate}
-\item For loop
-\item While loop
+	\item For loop
+	\item While loop
 \end{enumerate}
 
 \subsection{For loop}
@@ -469,7 +469,7 @@ In python you can use -1, -2.. and so on to access the characters in the string,
 'H'
 >>> s[-1]
 'o'
-\end{lstlisting} 
+\end{lstlisting}
 Python will give you more easy syntax to access the string. In python you can access the strings with the following syntax.
 \begin{lstlisting}
 [start:stop:jump]
@@ -514,22 +514,22 @@ If you want to add the element in to the empty list then you can use \textsc{app
 \end{lstlisting}
 \subsection{List methods}
 \begin{itemize}
-\item append(): To append element to the list.
-\item clear(): To clear the list.
-\item copy(): To copy the list in to the another variable. \footnote{ If we can directly copy one variable using assignment operator then why we need `copy' method?\\ Basically in python when assignment (=) operator, that time new variable just simply point to the list location. 
-\\
-So if you change the list using old variable then new variable will reflect the change. But if you create new variable using copy(), then your new variable did not get affected.\\
+	\item append(): To append element to the list.
+	\item clear(): To clear the list.
+	\item copy(): To copy the list in to the another variable. \footnote{ If we can directly copy one variable using assignment operator then why we need `copy' method?\\ Basically in python when assignment (=) operator, that time new variable just simply point to the list location.
+		      \\
+		      So if you change the list using old variable then new variable will reflect the change. But if you create new variable using copy(), then your new variable did not get affected.\\
 
-}
+	      }
 
-\item count(): Count the element occurrences in the list.
-\item extend(): To extend the existing list with another list. You can pass any object (string, list, dict, set) it will extend it to the list. 
-\item index(): It will return index of the element.
-\item insert(): To insert the element at specific location. This method accepts two parameters, 1st one is index and 2nd is value.
-\item pop(): To pop the element from the list. By default it will remove the elements from the end of the list. If you want to remove the elements from any location then you can pass index at it.
-\item remove(): To remove the element from the list.
-\item reverse(): To reverse the list.
-\item sort(): To sort the elements in the list.
+	\item count(): Count the element occurrences in the list.
+	\item extend(): To extend the existing list with another list. You can pass any object (string, list, dict, set) it will extend it to the list.
+	\item index(): It will return index of the element.
+	\item insert(): To insert the element at specific location. This method accepts two parameters, 1st one is index and 2nd is value.
+	\item pop(): To pop the element from the list. By default it will remove the elements from the end of the list. If you want to remove the elements from any location then you can pass index at it.
+	\item remove(): To remove the element from the list.
+	\item reverse(): To reverse the list.
+	\item sort(): To sort the elements in the list.
 \end{itemize}
 \clearpage
 
@@ -611,8 +611,8 @@ You can not add or remove the elements in the Tuple.
 \subsubsection{Tuple methods}
 You can check the properties of the Tuples using \textbf{dir} method. You will find only two properties.
 \begin{itemize}
-\item count(): It will give you the count of the elements in the tuple.
-\item index(): It will give you the index of the element.
+	\item count(): It will give you the count of the elements in the tuple.
+	\item index(): It will give you the index of the element.
 \end{itemize}
 \subsubsection{Operations on Tuples}
 As we saw in the lists, you can add two Tuples. Ex:
@@ -667,7 +667,7 @@ You can perform slicing operations on the lists. See following few examples:
 \section{Dictionaries}
 Dictionaries are based on the hash tables data structure in C. Dictionaries are defined using key and value. You can use curly braces ${}$ to define the dictionaries.
 
-Dictionaries are based on key and values. For each value there is one  key associated with it. 
+Dictionaries are based on key and values. For each value there is one  key associated with it.
 \begin{lstlisting}
 >>> d = {}
 >>> d = {'country': 'India', 
@@ -687,7 +687,7 @@ You can access the values using associated keys, and you can replace it using si
  'Marathi', 'Gujarati']
 
 \end{lstlisting}
-Keys in the dictionary are anything those can be string, integer, floating point values or any module object. 
+Keys in the dictionary are anything those can be string, integer, floating point values or any module object.
 \begin{lstlisting}
 >>> import os
 >>> d = {}
@@ -701,16 +701,16 @@ Keys in the dictionary are anything those can be string, integer, floating point
 \subsection{Dictionary Methods}
 Dictionary have following methods:
 \begin{itemize}
-\item clear() : To clear the dictionary.
-\item copy() : To copy the dictionary to the another variable.
-\item get() : Get is used for getting the value of the specific key in the dictionary or it will return \texttt{None}.
-\item items() : This method will return the all the items in the dictionary inside the list. This list will consist the pair of the key and value tuple.
-\item keys() : This method will return all the keys inside the dict.
-\item pop() : This method will pop specified key and return the value.
-\item popitem(): This method will pop any random key and value from they dictionary, it will return the tuple of key and value.
-\item update(): This method will update the dictionary with new values or old keys with new values.
-\item values() : This method will return the list of the all values.
-\item fromkeys() : This method will return the new dictionary with keys from iterable and values equal to values.
+	\item clear() : To clear the dictionary.
+	\item copy() : To copy the dictionary to the another variable.
+	\item get() : Get is used for getting the value of the specific key in the dictionary or it will return \texttt{None}.
+	\item items() : This method will return the all the items in the dictionary inside the list. This list will consist the pair of the key and value tuple.
+	\item keys() : This method will return all the keys inside the dict.
+	\item pop() : This method will pop specified key and return the value.
+	\item popitem(): This method will pop any random key and value from they dictionary, it will return the tuple of key and value.
+	\item update(): This method will update the dictionary with new values or old keys with new values.
+	\item values() : This method will return the list of the all values.
+	\item fromkeys() : This method will return the new dictionary with keys from iterable and values equal to values.
 \end{itemize}
 \subsection{Iteration on Dictionary}
 You can iterate on the dictionary using the for loop. By default it will iterate on the keys.
@@ -748,7 +748,7 @@ three 3
 \section{Functions}
 Function is a block of statements which will perform single action. Function will provide modular code, which will be more easy to read. You can reuse this code to perform some action which will save your time.
 
-In Python you can define the function using the \texttt{def} keyword. 
+In Python you can define the function using the \texttt{def} keyword.
 After the def keyword you define the name of the function and later in the parenthesis you provide the arguments, after the arguments line ends with the \texttt{$:$} which indicate that from the next line body of the function will be begin.
 \begin{lstlisting}
 >>> def add():
@@ -782,11 +782,11 @@ In Python you can return the values from the function using \texttt{return} keyw
 None
 >>> 
 \end{lstlisting}
-In above example add function will return the value, which is addition of the two numbers. You can store that value in a variable for later use. 
+In above example add function will return the value, which is addition of the two numbers. You can store that value in a variable for later use.
 \paragraph{}
 Let's see other side, what if function do not return any value? In that case it will return \texttt{None} keyword. You can see the example in above code with function sub. Function will print the subtraction but it will not return anything. By default the value is \texttt{None}.
 \subsection{Functions with arguments}
-In functions arguments can be passed, In function you can pass $n$ no of arguments. To pass the arguments in the function you do not need to specify the data type, which we specify in C, C++ or Java. As mentioned earlier, Python is dynamic language. 
+In functions arguments can be passed, In function you can pass $n$ no of arguments. To pass the arguments in the function you do not need to specify the data type, which we specify in C, C++ or Java. As mentioned earlier, Python is dynamic language.
 \begin{lstlisting}
 
 >>> def add(a, b):
@@ -812,11 +812,11 @@ In above program, two arguments are passed (a and b) to the function, and it is 
 If you are not passing expected arguments to the function then function will throw an error.
 
 \subsection{*args and **kwargs in Function}
-*args and **kwargs are play major role in function arguments. Consider if you want to pass $n$ no of arguments in to the function, some languages have restrictions on that, you can pass the arguments which are defined in the function. But Python gives you more scope to pass the $n$ no of arguments to the function. 
+*args and **kwargs are play major role in function arguments. Consider if you want to pass $n$ no of arguments in to the function, some languages have restrictions on that, you can pass the arguments which are defined in the function. But Python gives you more scope to pass the $n$ no of arguments to the function.
 
 \begin{itemize}
-\item **args used for the passing $n$ no of positional arguments tot the function.
-\begin{lstlisting}
+	\item **args used for the passing $n$ no of positional arguments tot the function.
+	      \begin{lstlisting}
 >>> def add(*args):
 ...     return sum(args)
 ... 
@@ -825,9 +825,9 @@ If you are not passing expected arguments to the function then function will thr
 210
 >>> 
 \end{lstlisting}
-*args accept all the arguments in to the tuple.
-\item **kwargs used for the passing $n$ no of key and value based arguments to the function.
-\begin{lstlisting}
+	      *args accept all the arguments in to the tuple.
+	\item **kwargs used for the passing $n$ no of key and value based arguments to the function.
+	      \begin{lstlisting}
 >>> def details(**kwargs):
 ...     print(kwargs)
 ... 
@@ -835,7 +835,7 @@ If you are not passing expected arguments to the function then function will thr
 >>> details(name='John',surname='Doe',age=10,height=5.5)
 {'name': 'John', 'surname': 'Doe', 'age': 10, 'height': 5.5}
 \end{lstlisting}
-**kwargs accepts all the arguments in to the dictionary.
+	      **kwargs accepts all the arguments in to the dictionary.
 \end{itemize}
 
 \section{Decorators}
@@ -869,7 +869,7 @@ After func
 In above example, I wrote another function name as 'wrapper' and passed one argument 'add' in it, and inside the wrapper function I called function 'func' with two parameters.
 After hitting enter, we could see that function add print addition 30 in between 'Before func' and 'After func'.
 \paragraph{}
-So basically this happened, I passed 'add' to 'wrapper' and when wrapper get called it printed "Before func" then it will call 'add' function which takes two arguments and return and print the result, After that it will print "After func". So this passed add function is get called within the 'wrapper' function. 
+So basically this happened, I passed 'add' to 'wrapper' and when wrapper get called it printed "Before func" then it will call 'add' function which takes two arguments and return and print the result, After that it will print "After func". So this passed add function is get called within the 'wrapper' function.
 \paragraph{}
 Python allows us to decorate the functions using decorator, so we can write the code like this
 \begin{lstlisting}
@@ -960,7 +960,7 @@ while True:
 
 print("Hello")
 \end{lstlisting}
-In above program if you provide another value expect digits then you will get value error. If you provide the any digit except 1 then it will throw an key error. 
+In above program if you provide another value expect digits then you will get value error. If you provide the any digit except 1 then it will throw an key error.
 
 Exception is generic class, if you don't know which error will occur then you will write Exception class and print it.
 \begin{lstlisting}
@@ -979,9 +979,9 @@ while True:
 print("Hello")
 \end{lstlisting}
 \section{Class}
-Class is nothing but the group of the methods and variables. Classes are the basic building block of Object Oriented programming. 
+Class is nothing but the group of the methods and variables. Classes are the basic building block of Object Oriented programming.
 \paragraph{}
-In Python you can define the classes using $class$ keyword. Inside the class you can define the methods which are class methods. To define the methods are related to the class, first argument passed is $self$, it tells the compiler this method is class method. That means you can not access this method without creating it's object. 
+In Python you can define the classes using $class$ keyword. Inside the class you can define the methods which are class methods. To define the methods are related to the class, first argument passed is $self$, it tells the compiler this method is class method. That means you can not access this method without creating it's object.
 
 \begin{lstlisting}
 >>> class math_op():
@@ -1010,7 +1010,7 @@ class math_op():
 
 m = math_op()
 \end{lstlisting}
-In above program $m$ is the object which we created of the class $math \textunderscore op$. As soon as object got created that time $\textunderscore\textunderscore init\textunderscore\textunderscore()$ method got called. 
+In above program $m$ is the object which we created of the class $math \textunderscore op$. As soon as object got created that time $\textunderscore\textunderscore init\textunderscore\textunderscore()$ method got called.
 If you run the above program, then it will give an output like:
 \begin{lstlisting}
 Init is called
@@ -1036,7 +1036,7 @@ In Python there are class method which are inbuilt, those methods can be overwri
 \paragraph{}
 Magic methods are the methods which are used to play with the object. Recently we saw one example of Magic methods which is $\textunderscore\textunderscore init \textunderscore\textunderscore()$.
 
-Earlier we saw that we can add two objects like int, str, list etc... Now let's implement it. 
+Earlier we saw that we can add two objects like int, str, list etc... Now let's implement it.
 \begin{lstlisting}
 >>> class Human():
 ...     def __init__(self, name):
@@ -1049,26 +1049,26 @@ Earlier we saw that we can add two objects like int, str, list etc... Now let's 
 >>> h + h1
 'Jon Doe'
 >>> 
-\end{lstlisting} 
-In above example we created one class and override the $\textunderscore\textunderscore add \textunderscore\textunderscore()$ magic method. This method will get called when we are going to add two objects. When we created the objects $h$ and $h1$ that time they are the objects of the same class. So we know that both of them have the same properties. Now let's add them. 
+\end{lstlisting}
+In above example we created one class and override the $\textunderscore\textunderscore add \textunderscore\textunderscore()$ magic method. This method will get called when we are going to add two objects. When we created the objects $h$ and $h1$ that time they are the objects of the same class. So we know that both of them have the same properties. Now let's add them.
 
 \paragraph{}
 When we are adding them first object's $add$ method get called and by default constructor will pass $h1$ object as $obj$ in the add method of the Human class.
 
 Using the same way you can override the other methods too:
 \begin{itemize}
-\item  $\textunderscore\textunderscore add \textunderscore\textunderscore()$ Add two objects
-\item  $\textunderscore\textunderscore sub \textunderscore\textunderscore()$ Subtract two objects
-\item  $\textunderscore\textunderscore mul \textunderscore\textunderscore()$ Multiply two objects
-\item  $\textunderscore\textunderscore div \textunderscore\textunderscore()$ Divide two objects
-\item  $\textunderscore\textunderscore lt \textunderscore\textunderscore()$ check less than condition $ a < b$
-\item  $\textunderscore\textunderscore gt \textunderscore\textunderscore()$ Check grater than condition $ a > b$
-\item  $\textunderscore\textunderscore le \textunderscore\textunderscore()$ Check less than and equal to condition $ a <= b$
-\item  $\textunderscore\textunderscore ge \textunderscore\textunderscore()$ Check grater than and equal to condition $a >= b$
-\item  $\textunderscore\textunderscore repr \textunderscore\textunderscore()$ Object representation on the console.
-\item  $\textunderscore\textunderscore str \textunderscore\textunderscore()$ Object representation when we are using $print()$
-\item  $\textunderscore\textunderscore len \textunderscore\textunderscore()$ To Count the length of the object. (Uses with $len()$)
-\item  $\textunderscore\textunderscore dir \textunderscore\textunderscore()$ Return the methods associated with the class. (Uses with $dir()$)
+	\item  $\textunderscore\textunderscore add \textunderscore\textunderscore()$ Add two objects
+	\item  $\textunderscore\textunderscore sub \textunderscore\textunderscore()$ Subtract two objects
+	\item  $\textunderscore\textunderscore mul \textunderscore\textunderscore()$ Multiply two objects
+	\item  $\textunderscore\textunderscore div \textunderscore\textunderscore()$ Divide two objects
+	\item  $\textunderscore\textunderscore lt \textunderscore\textunderscore()$ check less than condition $ a < b$
+	\item  $\textunderscore\textunderscore gt \textunderscore\textunderscore()$ Check grater than condition $ a > b$
+	\item  $\textunderscore\textunderscore le \textunderscore\textunderscore()$ Check less than and equal to condition $ a <= b$
+	\item  $\textunderscore\textunderscore ge \textunderscore\textunderscore()$ Check grater than and equal to condition $a >= b$
+	\item  $\textunderscore\textunderscore repr \textunderscore\textunderscore()$ Object representation on the console.
+	\item  $\textunderscore\textunderscore str \textunderscore\textunderscore()$ Object representation when we are using $print()$
+	\item  $\textunderscore\textunderscore len \textunderscore\textunderscore()$ To Count the length of the object. (Uses with $len()$)
+	\item  $\textunderscore\textunderscore dir \textunderscore\textunderscore()$ Return the methods associated with the class. (Uses with $dir()$)
 \end{itemize}
 \section{Inheritance}
 \section{File Operations}
